@@ -1,60 +1,138 @@
-# Lezzet Ocakbaşı — Web Sitesi İlerleme Notu
+# 🔥 LEZZET OCAKBAŞI — PROJE HAFIZASI
 
-> Bu dosya token bitse bile kaldığım yerden devam edebilmek için tutuluyor.
-> Her önemli adımda güncelleniyor.
+> **Bu dosya projenin tek hafızası.** Sohbet kapansa, token bitse, aylar sonra dönülse
+> buradan devam edilir. **Her değişiklikte bu dosya güncellenir.**
+> Son güncelleme: **2026-07-23**
 
-## İşletme Bilgileri (Google'dan alınan)
-- **Ad:** Lezzet Ocakbaşı
-- **Tür:** Ocakbaşı / Mangal / Dönerci
-- **Puan:** 4,4 (52 yorum)
-- **Adres:** Mevlana Mah., 38280 Talas / Kayseri
-- **Telefon:** (0352) 431 44 00
-- **Çalışma:** Açık — Kapanış 03:00 (saatler AMCAYA SORULACAK, şu an tahmini)
-- **Plus Code:** PH27+RW Talas, Kayseri
-- **Google Maps:** Plus code ile aranabilir
+---
 
-## Kullanıcı Notları / İstekler
-- Demo değil, GERÇEK yayına alınacak site.
-- Amca işletmeye önem vermemiş: Google'da menü/site yok, fotoğraflar kötü, yorumlar/saatler yanlış.
-- Menü SONRA eklenecek (kullanıcı amcaya sorup verecek). Menü bölümü kolay doldurulabilir yapıda olmalı.
-- Animasyonlar "şekilli şukullu" olsun — göze hitap etsin.
-- Fotoğraflar kötü → şimdilik CSS/placeholder, gerçek foto gelince değişecek.
+## 1. İŞLETME BİLGİLERİ (canlı gerçek)
 
-## Teknik Kararlar
-- Saf HTML + CSS + JS (framework yok) → her yerde barınabilir, hızlı.
-- Tema: Ateş/köz (ember) — koyu antrasit + turuncu/kırmızı sıcak tonlar (ocakbaşı ruhu).
-- Tek sayfa (one-page): Hero, Hakkında, Menü, Galeri, Yorumlar, İletişim/Harita, Footer.
-- Responsive (mobil öncelikli).
-- SEO meta etiketleri + Open Graph + LocalBusiness JSON-LD (Google için önemli!).
+| Alan | Değer |
+|---|---|
+| Ad | Lezzet Ocakbaşı |
+| Tür | Ocakbaşı / Mangal / Dönerci |
+| Adres | Mevlana Mah., 38280 Talas / Kayseri |
+| Telefon | (0352) 431 44 00 |
+| Google puanı | 4,4 ★ (52 yorum) |
+| **Çalışma saati** | **Her gün 11:30 – 22:00** ✅ ikisi de teyitli (23 Tem 2026) — kapanış Google'dan, açılış amcadan |
+| Plus Code | PH27+RW Talas, Kayseri |
+| Sahibi | Kullanıcının amcası |
+| Google işletme profili | Amcanın kendi bilgisayarında Google hesabıyla giriş yapılmış durumda — saatler oradan düzenlendi ✅ |
 
-## Dosya Yapısı
+---
+
+## 2. YAYIN / ERİŞİM
+
+- **CANLI SİTE:** https://ismetguler.github.io/lezzet-ocakbasi/
+- **GitHub repo:** https://github.com/ismetguler/lezzet-ocakbasi (public, hesap: `ismetguler`)
+- **Yerel klasör:** `C:\Users\ismet\Desktop\newjob\lezzet-ocakbasi\`
+- Pages kaynağı: `main` branch, kök (`/`). HTTPS zorunlu.
+- Git kimliği: `ismetguler` / `gulerrismet@gmail.com`
+- ⚠️ **pages.dev KULLANMA** — Türkiye'de engelli. github.io kullanıyoruz.
+- İleride `lezzetocakbasi.com` gibi alan adı alınırsa Pages'e `CNAME` dosyası eklenir.
+
+### Değişiklik yayınlama (ezber komut)
+```bash
+cd "C:/Users/ismet/Desktop/newjob/lezzet-ocakbasi" && git add . && git commit -m "guncelleme" && git push
+```
+Push'tan 1–2 dakika sonra canlı site yenilenir. Tarayıcıda görmüyorsan **Ctrl+F5** (sert yenileme).
+
+### Yerel önizleme
+```bash
+cd "C:/Users/ismet/Desktop/newjob/lezzet-ocakbasi" && python -m http.server 8099
+```
+→ http://127.0.0.1:8099
+
+---
+
+## 3. TEKNİK YAPI
+
 ```
 lezzet-ocakbasi/
-├── index.html      (ana sayfa)
-├── styles.css      (tüm stiller + animasyonlar)
-├── script.js       (etkileşim, scroll animasyonları)
-├── assets/         (fotoğraflar buraya)
-└── PROGRESS.md     (bu dosya)
+├── index.html      → tüm içerik + SEO meta + JSON-LD (Restaurant schema)
+├── styles.css      → tema, animasyonlar, responsive, FOTO SLOTLARI
+├── script.js       → scroll reveal, mobil menü, sayaçlar, köz partikülleri, menü sekmeleri
+├── assets/         → fotoğraflar buraya (şu an BOŞ)
+└── PROGRESS.md     → bu dosya
 ```
 
-## Yapılacaklar (TODO)
+- Saf HTML + CSS + JS. Framework yok, build yok → her yerde barınır, çok hızlı.
+- Tema: **ateş/köz (ember)** — koyu antrasit zemin + turuncu/kırmızı sıcak tonlar.
+- Tek sayfa: Hero → Hakkında → Menü → Galeri → Yorumlar → İletişim/Harita → Footer.
+- Mobil öncelikli responsive (375px'te test edildi, taşma yok).
+
+---
+
+## 4. NASIL DÜZENLENİR (kritik bilgi — burayı oku)
+
+### 📸 Fotoğraf eklemek → EN KOLAY İŞ
+`assets/` klasörüne şu **tam isimlerle** at, başka hiçbir şey yapmana gerek yok:
+
+| Dosya adı | Nereye düşer |
+|---|---|
+| `assets/doner.jpg` | Galeri — "Közde Döner" |
+| `assets/kebap.jpg` | Galeri — "Mangal Kebap" |
+| `assets/salon.jpg` | Galeri — "Salonumuz" |
+| `assets/lavas.jpg` | Galeri — "Lavaş & Garnitür" |
+| `assets/ocak.jpg` | Galeri — "Ocakbaşı" |
+| `assets/sofra.jpg` | Galeri — "Sofra Keyfi" |
+
+CSS `url(...) , linear-gradient(...)` şeklinde yazıldı: **dosya varsa foto görünür, yoksa eski gradyan görünür.** Kırık resim ikonu çıkmaz.
+Fotoğraf önerisi: yatay (4:3), en az 1200px genişlik, ~300KB altı, iyi ışık.
+
+### 🍽️ Menü fiyatı girmek
+`index.html` içinde `MENU-PLACEHOLDER` yorumunu ara.
+Her ürün: `<article class="menu-item" data-cat="...">`
+Kategoriler: `doner` / `kebap` / `baslangic` / `icecek`
+Fiyat için `<span class="price">—</span>` içindeki tireyi sil, fiyatı yaz.
+
+### 🕐 Saat değiştirmek → 4 yerde geçiyor, HEPSİNİ değiştir
+1. `index.html` JSON-LD → `"openingHours": "Mo-Su 11:30-22:00"` (satır ~43)
+2. Hero istatistik → `<b data-count="22">` (satır ~89)
+3. Hakkında metni + `<li>🕙 Her gün 22:00'ye kadar</li>` (satır ~102, ~106)
+4. İletişim → "Çalışma Saatleri · Her gün 11:30 – 22:00" (satır ~269)
+
+Kontrol komutu: `grep -n "11:30\|22:00" index.html` → 4 satır dönmeli.
+
+---
+
+## 5. YAPILDI ✅
+
 - [x] index.html iskeleti + tüm bölümler
 - [x] styles.css — tema, animasyonlar, responsive
-- [x] script.js — scroll reveal, mobil menü, sayaçlar, köz partikülleri, menü sekmeleri
-- [x] SEO / JSON-LD (Restaurant schema, OG etiketleri)
-- [~] Menü bölümü — YAPI HAZIR, örnek ürünler var, fiyatlar "—". Amcadan gelince doldurulacak.
-      → index.html içinde "MENU-PLACEHOLDER" yorumunu ara. Her ürün: <article class="menu-item" data-cat="...">
-      → Kategoriler: doner / kebap / baslangic / icecek. Fiyatı <span class="price">—</span> yerine yaz.
-- [ ] Gerçek fotoğraflar → assets/ klasörüne koy, styles.css'te .g-doner/.g-kebap vb.
-      background gradyanlarını `background-image:url(assets/xxx.jpg)` ile değiştir.
-- [ ] Yayına alma (hosting kararı — NOT: pages.dev TR'de engelli, kullanma. Netlify/Vercel/GitHub Pages)
-- [ ] Çalışma saatleri amcadan teyit (şu an "11:00-03:00 her gün" varsayıldı — hero'da ve JSON-LD'de)
+- [x] script.js — scroll reveal, mobil menü, sayaçlar, köz partikülleri, menü sekme filtresi
+- [x] SEO / Open Graph / JSON-LD (Restaurant schema)
+- [x] Mobil test (375×812) — yatay taşma yok, hamburger menü çalışıyor
+- [x] GitHub Pages'te yayına alındı — v1 CANLI
+- [x] **Google işletme profilinde saatler düzeltildi (amcanın bilgisayarından)** — 23 Tem 2026
+- [x] **Sitedeki saatler 11:00–03:00 → 11:30–22:00 olarak güncellendi (4 yer + JSON-LD)** — 23 Tem 2026
+- [x] **Açılış saati amcadan teyit alındı: 11:30, her gün** — 23 Tem 2026
+- [x] **Galeri foto slotları hazırlandı** — assets/'e dosya atınca otomatik devreye giriyor — 23 Tem 2026
 
-## Test Durumu (2026-07-11)
-- Yerel sunucu: `python -m http.server 8099` → http://127.0.0.1:8099 (klasör içinde çalıştır)
-- read_page ile tüm bölümler doğrulandı ✓
-- JS test: menü sekme filtreleme ✓, köz partikülleri (14 mobil/26 masaüstü) ✓, sayaçlar ✓
-- NOT: Tarayıcı screenshot'ı sürekli animasyonlar (köz/alev) yüzünden timeout veriyor — SİTE HATASI DEĞİL,
-  araç sabit kare yakalayamıyor. Gerçek kullanıcıda sorun yok.
+## 6. SIRADA / BEKLEYEN ⏳
 
-## Durum: v1 TAMAM — inceleme bekliyor. Sıradaki: menü fiyatları + gerçek foto + hosting.
+- [ ] **Gerçek fotoğraflar** — kullanıcı çekecek/toplayacak → `assets/` (bkz. bölüm 4)
+- [ ] **Menü + fiyatlar** — amcadan gelince doldurulacak
+- [ ] Google işletme profiline iyi fotoğraflar + menü linki (site adresi) eklemek
+- [ ] (ops.) Özel alan adı
+- [ ] (ops.) WhatsApp sipariş butonu
+- [ ] (ops.) Gerçek Google yorumlarını isim/tarihle güncellemek
+
+---
+
+## 7. ÖNEMLİ NOTLAR / TUZAKLAR
+
+- **Ekran görüntüsü aracı timeout veriyor:** köz/alev animasyonları sürekli döndüğü için tarayıcı sabit kare yakalayamıyor. **SİTE HATASI DEĞİL.** Gerçek kullanıcıda sorun yok.
+- **"Telefonda farklı görünüyor":** kasıtlı responsive tasarım, hata değil.
+- Yorum bölümündeki metinler Google yorumlarından derleme; birebir alıntı değil.
+- Kullanıcının isteği: **demo değil, gerçek yayın.** Animasyonlar "şekilli şukullu" olsun.
+
+---
+
+## 8. OTURUM GÜNLÜĞÜ
+
+| Tarih | Ne yapıldı |
+|---|---|
+| 2026-07-11 | Site sıfırdan yazıldı, test edildi, GitHub Pages'te yayına alındı (v1 canlı) |
+| 2026-07-23 | Bu dosya proje hafızasına dönüştürüldü; saatler 11:30–22:00 olarak düzeltildi (ikisi de teyitli); galeri foto slotları fallback'li hale getirildi. **Henüz push edilmedi.** |

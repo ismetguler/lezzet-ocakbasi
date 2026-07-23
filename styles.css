@@ -190,13 +190,17 @@ section{position:relative}
 .g-item:hover{transform:scale(1.02)}
 .g-ph{aspect-ratio:4/3;background-size:cover;background-position:center;position:relative;transition:transform .6s}
 .g-item:hover .g-ph{transform:scale(1.1)}
-/* Foto placeholder gradyanları — gerçek foto gelince background-image ile değiştir */
-.g-doner{background:linear-gradient(135deg,#6b2f10,#c25316,#f0932b)}
-.g-kebap{background:linear-gradient(135deg,#5a1f14,#a33321,#e07a4a)}
-.g-salon{background:linear-gradient(135deg,#243447,#3a4a63,#5b7aa0)}
-.g-lavas{background:linear-gradient(135deg,#7a4a12,#c58a2f,#e8c06a)}
-.g-ates{background:linear-gradient(135deg,#4a1408,#b02c0c,#ff7a2a)}
-.g-sofra{background:linear-gradient(135deg,#3a2410,#7a4c1e,#c58a3e)}
+/* FOTO SLOTLARI
+   Her slot önce assets/ içindeki gerçek fotoğrafı dener; dosya yoksa alttaki
+   gradyan görünür. Yani fotoğraf eklemek için TEK İŞ: doğru isimle assets/'e at.
+   Beklenen dosyalar: doner.jpg, kebap.jpg, salon.jpg, lavas.jpg, ocak.jpg, sofra.jpg
+   (yatay/4:3, en az 1200px genişlik, ~300KB altı) */
+.g-doner{background-image:url(assets/doner.jpg),linear-gradient(135deg,#6b2f10,#c25316,#f0932b)}
+.g-kebap{background-image:url(assets/kebap.jpg),linear-gradient(135deg,#5a1f14,#a33321,#e07a4a)}
+.g-salon{background-image:url(assets/salon.jpg),linear-gradient(135deg,#243447,#3a4a63,#5b7aa0)}
+.g-lavas{background-image:url(assets/lavas.jpg),linear-gradient(135deg,#7a4a12,#c58a2f,#e8c06a)}
+.g-ates{background-image:url(assets/ocak.jpg),linear-gradient(135deg,#4a1408,#b02c0c,#ff7a2a)}
+.g-sofra{background-image:url(assets/sofra.jpg),linear-gradient(135deg,#3a2410,#7a4c1e,#c58a3e)}
 .g-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,.7));font-family:var(--font-display);font-size:1.3rem;letter-spacing:1px;transform:translateY(6px);opacity:.85;transition:.3s}
 .g-item:hover figcaption{transform:translateY(0);opacity:1}
 
