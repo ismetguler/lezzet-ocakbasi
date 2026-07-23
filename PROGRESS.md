@@ -71,15 +71,20 @@ lezzet-ocakbasi/
 ### 📸 Fotoğraf eklemek → EN KOLAY İŞ
 `assets/` klasörüne şu **tam isimlerle** at, başka hiçbir şey yapmana gerek yok:
 
-| Dosya adı | Nereye düşer |
-|---|---|
-| `assets/dis-cephe.jpg` | **HERO — sayfanın en üstü, en önemli foto** (akşam dış cephe) |
-| `assets/doner.jpg` | Galeri — "Közde Döner" |
-| `assets/kebap.jpg` | Galeri — "Mangal Kebap" |
-| `assets/salon.jpg` | Galeri — "Salonumuz" |
-| `assets/lavas.jpg` | Galeri — "Lavaş & Garnitür" |
-| `assets/ocak.jpg` | Galeri — "Ocakbaşı" |
-| `assets/sofra.jpg` | Galeri — "Sofra Keyfi" |
+| # | Dosya adı | Nereye düşer | Ne çekilecek |
+|---|---|---|---|
+| ⭐ | `assets/dis-cephe.jpg` | **HERO — sayfanın en üstü, en önemli foto** | Dükkân dıştan, akşam mavi saatte |
+| 1 | `assets/doner.jpg` | Galeri — "Közde Döner" | Döner kesilirken, bıçak+et yakın |
+| 2 | `assets/usta.jpg` | Galeri — "Ustanın Elinden" | Usta iş başında, elleri/şiş görünsün |
+| 3 | `assets/kebap.jpg` | Galeri — "Mangal Kebap" | Tabakta servis kebap, 45° |
+| 4 | `assets/ocak.jpg` | Galeri — "Ocakbaşı" | Ocağın kendisi, kor ve alev |
+| 5 | `assets/mangal.jpg` | Galeri — "Köz Başında" | Mangalda pişen etler, yakın |
+| 6 | `assets/sofra.jpg` | Galeri — "Sofra Keyfi" | Donatılmış masa, tepeden |
+| 7 | `assets/dis-masa.jpg` | Galeri — "Dışarıda Oturmak" | Dış masalar, akşamüstü ışıkta |
+| 8 | `assets/salon.jpg` | Galeri — "Salonumuz" | Temiz/boş salon, köşeden |
+| 9 | `assets/lavas.jpg` | Galeri — "Lavaş & Garnitür" | Lavaş, salata, garnitür yakın |
+
+**Galeri 3×3 tam ızgara (9 kutu).** Hepsi dolarsa mükemmel görünür; eksik kalanlar gradyan olarak durur, kırık görünmez.
 
 CSS `url(...) , linear-gradient(...)` şeklinde yazıldı: **dosya varsa foto görünür, yoksa eski gradyan görünür.** Kırık resim ikonu çıkmaz.
 Hero'da fotoğrafın üstünde koyu katman var → hangi foto konursa konsun yazılar okunur kalır.
@@ -88,8 +93,15 @@ Hero'da fotoğrafın üstünde koyu katman var → hangi foto konursa konsun yaz
 
 ## 4b. 📷 FOTOĞRAF ÇEKİM REHBERİ (telefonla, profesyonel görünsün)
 
+### ⚠️ YATAY / DİKEY KURALI (sık sorulan)
+- **Site için YATAY şart.** Hero ve galeri yatay alanlar; dikey foto konursa üstü-altı kesilir.
+- **Ama her kareyi iki kez çek: önce yatay, sonra aynı yerden dikey.** İki saniyelik iş.
+  - Yatay → bu site
+  - Dikey → Instagram/WhatsApp durumu, Google işletme profili
+- Tek istisna yok; dolu sofra ve tepeden çekimlerde bile yatay çek, kare gibi dursa da olur.
+
 ### Telefon ayarları — bir kere yap, hep açık kalsın
-- **Yatay tut** (telefonu yan çevir). Site yatay foto istiyor, dikey çekersen kenarları kesilir.
+- **Yatay tut** (telefonu yan çevir).
 - **Izgara/Grid'i aç** (Ayarlar → Kamera → Izgara). Çizgileri düz tutmak için.
 - **Flaş KAPALI** — her zaman. Flaş yemeği yağlı, mekânı ucuz gösterir.
 - **HDR açık.**
@@ -124,6 +136,18 @@ Hero'da fotoğrafın üstünde koyu katman var → hangi foto konursa konsun yaz
 - Arka planı sadeleştir: ketçap şişesi, telefon, peçetelik, anahtar → kadraj dışına.
 - `doner.jpg` için: **döner kesilirken, bıçak ve etin dönerken** çek. Hareket iştah açar.
 - `sofra.jpg` için: masayı tam donat (kebap + lavaş + salata + ayran), tepeden çek.
+
+### 👨‍🍳 USTA & MANGAL (`usta.jpg`, `mangal.jpg`) — kullanıcının kendi fikri, çok iyi kareler
+- **`usta.jpg`:** usta şişleri çevirirken **yandan**, elleri ve ateş aynı karede olsun. Yüzü net görünüyorsa izin al; sadece eller/şiş de yeter, hatta bazen daha iyi durur.
+- **`mangal.jpg`:** mangalın üstündeki etlere **yakın plan**, dumanı ve közü yakala.
+- Ocağın turuncu ışığı zaten sıcak duruyor, ayrıca ışık ayarlama. **Flaş asla.**
+- Hareket var → **10-15 kare çek**, birkaçı net çıkar. Seri çekim (deklanşöre basılı tut) kullan.
+
+### 🪑 DIŞ MASALAR (`dis-masa.jpg`) — kullanıcının kendi fikri, reklam açısından değerli
+- **Akşamüstü**, dış cephe çekiminden hemen önce (hava henüz tamamen kararmadan).
+- Masalar kurulu, sandalyeler düzgün, üstünde birkaç şey olsun (çay bardağı, peçetelik).
+- Varsa üstteki ışıklar/tenteler açık olsun.
+- Alçaktan çek — masa hizasından bakınca "otur da yiyelim" hissi veriyor.
 
 ### 🪑 SALON (`salon.jpg`)
 - **Müşteri gelmeden önce, mekân tertemiz ve boşken.** Sandalyeler hizalı, masalar açık.
@@ -216,7 +240,8 @@ Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işlet
 ## 6. SIRADA / BEKLEYEN ⏳
 
 - [ ] **Gerçek fotoğraflar** — kullanıcı çekecek → `assets/` (çekim rehberi: bölüm 4b)
-      Öncelik sırası: `dis-cephe.jpg` (akşam) → `ocak.jpg` → `doner.jpg` → `sofra.jpg` → `salon.jpg` → `kebap.jpg` → `lavas.jpg`
+      **Galeri 9 slota çıkarıldı** (kullanıcı usta + mangal + dış masa da çekecek).
+      Öncelik: `dis-cephe.jpg` (akşam) → `usta.jpg` → `doner.jpg` → `mangal.jpg` → `dis-masa.jpg` → `sofra.jpg` → `ocak.jpg` → `kebap.jpg` → `salon.jpg` → `lavas.jpg`
 - [ ] **`og:image` etiketini aç** — `dis-cephe.jpg` eklenince `index.html` head'indeki yorumlu 2 satırın işaretini kaldır (WhatsApp'ta link önizlemesinde büyük görsel çıkar)
 - [ ] **Menü + fiyatlar** — amcadan gelince doldurulacak
 - [ ] Google işletme profiline iyi fotoğraflar + site adresi eklemek
@@ -242,4 +267,5 @@ Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işlet
 | 2026-07-23 | Bu dosya proje hafızasına dönüştürüldü; saatler 11:30–22:00 olarak düzeltildi (ikisi de teyitli); galeri foto slotları fallback'li hale getirildi → **push edildi, canlıda** (`b500e35`) |
 | 2026-07-23 | Hero'ya `dis-cephe.jpg` foto slotu açıldı (koyu okunurluk katmanıyla); foto çekim rehberi (4b) ve alan adı planı (4c) yazıldı |
 | 2026-07-23 | Adres kararı: **ücretsiz yol**, `.com` ertelendi. TR erişim testi yapıldı (pages.dev engelli, netlify/vercel/github.io açık) → **Netlify seçildi** (yeni hesap gerektirmediği için) |
+| 2026-07-23 | Galeri 6 → **9 slot** (3×3) yapıldı: usta, mangal, dış masa kareleri eklendi. Yatay/dikey kuralı ve yeni çekim notları 4b'ye yazıldı |
 | 2026-07-23 | ✅ **Netlify kurulumu tamamlandı — https://lezzetocakbasi.netlify.app CANLI.** HTTPS, saatler, tüm bölümler, telefon linki tarayıcıyla doğrulandı. Adres etiketleri yeni adrese çevrildi. Sıradaki: fotoğraflar |
