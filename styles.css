@@ -77,13 +77,20 @@ section{position:relative}
 .nav-toggle span{width:26px;height:2px;background:var(--text);transition:.3s}
 
 /* ===== HERO ===== */
+/* HERO — arka planda dış cephe fotoğrafı.
+   assets/dis-cephe.jpg eklenince otomatik devreye girer; yoksa gradyan kalır.
+   Üstteki koyu katmanlar yazının okunurluğunu her fotoğrafta garantiler. */
 .hero{
   min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;padding:120px 20px 60px;position:relative;z-index:2;
-  background:
-    radial-gradient(120% 90% at 50% 0%,rgba(255,87,34,.14),transparent 55%),
-    radial-gradient(80% 60% at 50% 110%,rgba(255,157,60,.10),transparent),
+  background-image:
+    radial-gradient(120% 90% at 50% 0%,rgba(255,87,34,.20),transparent 55%),
+    linear-gradient(180deg,rgba(15,15,18,.72),rgba(15,15,18,.82) 55%,var(--bg-2)),
+    url(assets/dis-cephe.jpg),
     linear-gradient(180deg,var(--bg),var(--bg-2));
+  background-size:auto,auto,cover,auto;
+  background-position:center,center,center,center;
+  background-repeat:no-repeat;
 }
 .hero-glow{
   position:absolute;bottom:-30%;left:50%;transform:translateX(-50%);
