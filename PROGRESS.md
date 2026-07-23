@@ -56,7 +56,9 @@ lezzet-ocakbasi/
 ├── styles.css      → tema, animasyonlar, responsive, FOTO SLOTLARI
 ├── script.js       → scroll reveal, mobil menü, sayaçlar, köz partikülleri, menü sekmeleri
 ├── assets/         → fotoğraflar buraya (şu an BOŞ)
-└── PROGRESS.md     → bu dosya
+├── netlify.toml    → Netlify ayarları (build yok, önbellek başlıkları)
+├── DUKKAN-GOREV.md → dükkan ziyareti görev listesi (telefondan bakılıyor)
+└── PROGRESS.md     → bu dosya (proje hafızası)
 ```
 
 - Saf HTML + CSS + JS. Framework yok, build yok → her yerde barınır, çok hızlı.
@@ -239,11 +241,28 @@ Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işlet
 
 ## 6. SIRADA / BEKLEYEN ⏳
 
+> 🏪 **Dükkan ziyareti görev listesi ayrı dosyada: [`DUKKAN-GOREV.md`](DUKKAN-GOREV.md)** — telefondan açılıp sırayla işaretlenecek.
+
+### 🚨 EN ACİL: Google hesabı kurtarma
+Amcanın Google hesabı dükkandaki PC'de **açık ama şifresi bilinmiyor.** Oturum düşerse işletme profili (yorumlar, sıralama, fotoğraflar) kaybedilir. Dükkandaki ilk iş: kurtarma telefonu/e-postası ekle + şifreyi sıfırla. Detay: DUKKAN-GOREV.md bölüm A.
+⚠️ O PC'de **çıkış yapma, çerez temizleme yok.**
+
+### 🎯 ANA HEDEF: QR MENÜ
+Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
+**Satış argümanı (amcaya anlatılacak):** fiyat değişince QR yeniden basılmıyor, sadece site güncelleniyor. Basılı menü masrafı ve derdi bitiyor.
+
+
 - [ ] **Gerçek fotoğraflar** — kullanıcı çekecek → `assets/` (çekim rehberi: bölüm 4b)
       **Galeri 9 slota çıkarıldı** (kullanıcı usta + mangal + dış masa da çekecek).
       Öncelik: `dis-cephe.jpg` (akşam) → `usta.jpg` → `doner.jpg` → `mangal.jpg` → `dis-masa.jpg` → `sofra.jpg` → `ocak.jpg` → `kebap.jpg` → `salon.jpg` → `lavas.jpg`
 - [ ] **`og:image` etiketini aç** — `dis-cephe.jpg` eklenince `index.html` head'indeki yorumlu 2 satırın işaretini kaldır (WhatsApp'ta link önizlemesinde büyük görsel çıkar)
 - [ ] **Menü + fiyatlar** — amcadan gelince doldurulacak
+- [ ] **Menü ayrı tek sayfa yapılacak** (`menu.html`) — telefonda okunaklı, kategorili, hızlı açılan
+- [ ] **QR kod üretilecek** → menü sayfasına → yazdırılıp masalara konacak
+- [ ] **Fotoğraf düzenleme** — kırpma, boyut, ışık/renk, üzerine yazı ekleme (Claude yapacak, kullanıcı ham çekecek)
+- [ ] **WhatsApp sipariş butonu** — numara varsa
+- [ ] **Hakkında bölümü gerçek bilgilerle** — kuruluş yılı, ustanın hikâyesi, et tedariki
+- [ ] **Google profili düzeltmeleri** — site adresi, kategori, hizmetler, ödeme yöntemleri (DUKKAN-GOREV.md A4)
 - [ ] Google işletme profiline iyi fotoğraflar + site adresi eklemek
 - [ ] (ops.) WhatsApp sipariş butonu
 - [ ] (ops.) Gerçek Google yorumlarını isim/tarihle güncellemek
@@ -267,5 +286,6 @@ Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işlet
 | 2026-07-23 | Bu dosya proje hafızasına dönüştürüldü; saatler 11:30–22:00 olarak düzeltildi (ikisi de teyitli); galeri foto slotları fallback'li hale getirildi → **push edildi, canlıda** (`b500e35`) |
 | 2026-07-23 | Hero'ya `dis-cephe.jpg` foto slotu açıldı (koyu okunurluk katmanıyla); foto çekim rehberi (4b) ve alan adı planı (4c) yazıldı |
 | 2026-07-23 | Adres kararı: **ücretsiz yol**, `.com` ertelendi. TR erişim testi yapıldı (pages.dev engelli, netlify/vercel/github.io açık) → **Netlify seçildi** (yeni hesap gerektirmediği için) |
+| 2026-07-23 | Yeni yol haritası: menü çıkarma → tek sayfa menü → **QR kod** → masalara. Fotoğraf düzenleme (yazı ekleme dahil) Claude'a devredildi. Google hesabı şifresizlik riski tespit edildi → `DUKKAN-GOREV.md` yazıldı |
 | 2026-07-23 | Galeri 6 → **9 slot** (3×3) yapıldı: usta, mangal, dış masa kareleri eklendi. Yatay/dikey kuralı ve yeni çekim notları 4b'ye yazıldı |
 | 2026-07-23 | ✅ **Netlify kurulumu tamamlandı — https://lezzetocakbasi.netlify.app CANLI.** HTTPS, saatler, tüm bölümler, telefon linki tarayıcıyla doğrulandı. Adres etiketleri yeni adrese çevrildi. Sıradaki: fotoğraflar |
