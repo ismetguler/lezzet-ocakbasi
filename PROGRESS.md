@@ -139,8 +139,30 @@ Hero'da fotoğrafın üstünde koyu katman var → hangi foto konursa konsun yaz
 
 **Sorun:** `ismetguler.github.io/lezzet-ocakbasi` adresi işletme için uygun değil — kartvizite, tabelaya, Google profiline yazılmaz.
 
-**Çözüm: `lezzetocakbasi.com` alınacak.**
-- 23 Tem 2026 itibarıyla RDAP kaydında görünmüyor → **boşta.**
+### ✅ SEÇİLEN YOL (23 Tem 2026): ÜCRETSİZ — `lezzetocakbasi.github.io`
+Kullanıcı kararı: para vermeden, adreste sadece işletme adı görünsün yeter.
+Neden github.io: Türkiye'den sorunsuz açıldığı **test edilmiş** durumda. (netlify.app / vercel.app'te bu garanti yok, pages.dev zaten engelli.)
+
+**Plan: yeni repo açmak YOK — mevcut repo taşınıyor.** Site, geçmiş, her şey aynen gelir.
+
+| # | Adım | Kim yapar |
+|---|---|---|
+| 1 | GitHub'da yeni hesap aç — kullanıcı adı **tam olarak** `lezzetocakbasi`. Farklı e-posta gerekir: amcanın e-postası (en doğrusu, işletmenin hesabı olur) veya `gulerrismet+ocakbasi@gmail.com` (Gmail'de bu çalışır, aynı kutuya düşer). E-postayı doğrula. | **Kullanıcı** (hesap açmayı Claude yapamaz) |
+| 2 | `ismetguler/lezzet-ocakbasi` → Settings → Repository name → **`lezzetocakbasi.github.io`** → Rename | Kullanıcı |
+| 3 | Aynı Settings sayfasının en altı → Danger Zone → **Transfer ownership** → yeni sahip: `lezzetocakbasi` | Kullanıcı |
+| 4 | `lezzetocakbasi` hesabına giriş → gelen transfer davetini **kabul et** | Kullanıcı |
+| 5 | Yeni hesapta repo → Settings → Collaborators → **`ismetguler`** ekle (Write yetkisi) → *bu sayede bu bilgisayardan push çalışmaya devam eder, yeni token gerekmez* | Kullanıcı |
+| 6 | Settings → Pages → Source: `main` / kök (`/`) → Save | Kullanıcı |
+| 7 | Yerelde remote adresini güncelle: `git remote set-url origin https://github.com/lezzetocakbasi/lezzetocakbasi.github.io.git` | **Claude** |
+| 8 | `index.html` içindeki OG/canonical/JSON-LD adreslerini yeni adrese çevir | **Claude** |
+
+**Sonuç adres: `https://lezzetocakbasi.github.io`** (alt klasör yok, sade)
+
+⚠️ Repo adı `kullanıcıadı.github.io` ile **birebir aynı** olmalı — user page kuralı bu. Yanlış isimde adres `lezzetocakbasi.github.io/repoadi` olur.
+⚠️ Adım 2'den sonra eski adres bir süre yönlendirir ama kalıcı sayma; Google profiline yeni adresi yaz.
+
+### 💰 İLERİDE İSTENİRSE (ücretli, şimdilik ERTELENDİ): `lezzetocakbasi.com`
+- 23 Tem 2026 itibarıyla RDAP kaydında görünmüyor → **boşta.** (Sonra bakılırsa tekrar kontrol et, kapılmış olabilir.)
 - Maliyet: yılda yaklaşık 300–600 TL (sadece alan adı). **Hosting yine bedava kalıyor** — GitHub Pages'te durmaya devam eder.
 - Nereden: Türkiye'den Natro / İsimtescil / Turhost, yurtdışından Namecheap. (İlk yıl indirimli, 2. yıl tam fiyat — yenileme fiyatına bak.)
 - ⚠️ `.com.tr` ALMA — vergi levhası/marka belgesi ister, uğraştırır. Düz `.com` yeterli ve daha tanıdık.
@@ -154,7 +176,7 @@ Hero'da fotoğrafın üstünde koyu katman var → hangi foto konursa konsun yaz
 5. DNS yayılınca (birkaç saat) **"Enforce HTTPS"** kutusunu işaretle
 6. Sonra: Google işletme profiline site adresi olarak bunu ekle + `index.html` içindeki JSON-LD/OG etiketlerindeki adresleri güncelle
 
-**Ücretsiz ara çözüm (alan adı alınmayacaksa):** GitHub'da `lezzetocakbasi` adında yeni bir hesap açılıp repo oraya taşınırsa adres `lezzetocakbasi.github.io` olur. Bedava ama `.com` kadar ciddi durmaz.
+**Not:** `.com` alınırsa yukarıdaki github.io kurulumu boşa gitmez — aynı repoya `CNAME` dosyası eklenip DNS bağlanır, adres üstüne biner. Yani ücretsiz yolla başlamak ileriyi kapatmıyor.
 
 ### 🍽️ Menü fiyatı girmek
 `index.html` içinde `MENU-PLACEHOLDER` yorumunu ara.
@@ -189,7 +211,7 @@ Kontrol komutu: `grep -n "11:30\|22:00" index.html` → 4 satır dönmeli.
 
 - [ ] **Gerçek fotoğraflar** — kullanıcı çekecek → `assets/` (çekim rehberi: bölüm 4b)
       Öncelik sırası: `dis-cephe.jpg` (akşam) → `ocak.jpg` → `doner.jpg` → `sofra.jpg` → `salon.jpg` → `kebap.jpg` → `lavas.jpg`
-- [ ] **`lezzetocakbasi.com` alan adı** — boşta görünüyor, alınıp bağlanacak (adımlar: bölüm 4c)
+- [ ] **Adres taşıma → `lezzetocakbasi.github.io`** (ücretsiz yol seçildi). Kullanıcı 1-6. adımları yapacak, sonra Claude 7-8'i yapacak. Detay: bölüm 4c
 - [ ] **Menü + fiyatlar** — amcadan gelince doldurulacak
 - [ ] Google işletme profiline iyi fotoğraflar + site adresi eklemek
 - [ ] (ops.) WhatsApp sipariş butonu
@@ -213,3 +235,4 @@ Kontrol komutu: `grep -n "11:30\|22:00" index.html` → 4 satır dönmeli.
 | 2026-07-11 | Site sıfırdan yazıldı, test edildi, GitHub Pages'te yayına alındı (v1 canlı) |
 | 2026-07-23 | Bu dosya proje hafızasına dönüştürüldü; saatler 11:30–22:00 olarak düzeltildi (ikisi de teyitli); galeri foto slotları fallback'li hale getirildi → **push edildi, canlıda** (`b500e35`) |
 | 2026-07-23 | Hero'ya `dis-cephe.jpg` foto slotu açıldı (koyu okunurluk katmanıyla); foto çekim rehberi (4b) ve alan adı planı (4c) yazıldı |
+| 2026-07-23 | Adres kararı: **ücretsiz yol** — `.com` ertelendi, repo `lezzetocakbasi.github.io`'ya taşınacak. Taşıma adımları 4c'ye yazıldı, sıra kullanıcının hesap açmasında |
