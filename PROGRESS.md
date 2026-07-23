@@ -24,19 +24,21 @@
 
 ## 2. YAYIN / ERİŞİM
 
-- **CANLI SİTE:** https://ismetguler.github.io/lezzet-ocakbasi/
+- **🌐 CANLI SİTE (ASIL ADRES):** **https://lezzetocakbasi.netlify.app**
+- Yedek adres (GitHub Pages, açık kalsın): https://ismetguler.github.io/lezzet-ocakbasi/
 - **GitHub repo:** https://github.com/ismetguler/lezzet-ocakbasi (public, hesap: `ismetguler`)
 - **Yerel klasör:** `C:\Users\ismet\Desktop\newjob\lezzet-ocakbasi\`
-- Pages kaynağı: `main` branch, kök (`/`). HTTPS zorunlu.
+- **Netlify:** site adı `lezzetocakbasi`, GitHub hesabıyla giriş yapılıyor (ayrı Netlify şifresi YOK).
+  Repoya bağlı → her push otomatik yayınlanır. Ayarlar `netlify.toml` dosyasında, panelde bir şey seçmeye gerek yok.
+- Pages kaynağı (yedek): `main` branch, kök (`/`). HTTPS zorunlu.
 - Git kimliği: `ismetguler` / `gulerrismet@gmail.com`
-- ⚠️ **pages.dev KULLANMA** — Türkiye'de engelli. github.io kullanıyoruz.
-- İleride `lezzetocakbasi.com` gibi alan adı alınırsa Pages'e `CNAME` dosyası eklenir.
+- ⚠️ **pages.dev KULLANMA** — Türkiye'de engelli (23 Tem 2026'da test edildi, bağlantı reddedildi).
 
 ### Değişiklik yayınlama (ezber komut)
 ```bash
 cd "C:/Users/ismet/Desktop/newjob/lezzet-ocakbasi" && git add . && git commit -m "guncelleme" && git push
 ```
-Push'tan 1–2 dakika sonra canlı site yenilenir. Tarayıcıda görmüyorsan **Ctrl+F5** (sert yenileme).
+Push'tan 1–2 dakika sonra **hem Netlify hem GitHub Pages** kendiliğinden yenilenir. Tarayıcıda değişikliği görmüyorsan **Ctrl+F5** (sert yenileme).
 
 ### Yerel önizleme
 ```bash
@@ -208,12 +210,14 @@ Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işlet
 - [x] **Sitedeki saatler 11:00–03:00 → 11:30–22:00 olarak güncellendi (4 yer + JSON-LD)** — 23 Tem 2026
 - [x] **Açılış saati amcadan teyit alındı: 11:30, her gün** — 23 Tem 2026
 - [x] **Galeri foto slotları hazırlandı** — assets/'e dosya atınca otomatik devreye giriyor — 23 Tem 2026
+- [x] **NETLIFY'A GEÇİLDİ — asıl adres artık `lezzetocakbasi.netlify.app`** (ücretsiz, HTTPS otomatik, TR'den erişim doğrulandı) — 23 Tem 2026
+- [x] **Adres etiketleri güncellendi** — canonical + og:url + JSON-LD `url` yeni adrese çevrildi — 23 Tem 2026
 
 ## 6. SIRADA / BEKLEYEN ⏳
 
 - [ ] **Gerçek fotoğraflar** — kullanıcı çekecek → `assets/` (çekim rehberi: bölüm 4b)
       Öncelik sırası: `dis-cephe.jpg` (akşam) → `ocak.jpg` → `doner.jpg` → `sofra.jpg` → `salon.jpg` → `kebap.jpg` → `lavas.jpg`
-- [ ] **Adres → `lezzetocakbasi.netlify.app`** (ücretsiz yol seçildi). Kullanıcı 1-5. adımları yapacak, sonra Claude 6'yı yapacak. Detay: bölüm 4c
+- [ ] **`og:image` etiketini aç** — `dis-cephe.jpg` eklenince `index.html` head'indeki yorumlu 2 satırın işaretini kaldır (WhatsApp'ta link önizlemesinde büyük görsel çıkar)
 - [ ] **Menü + fiyatlar** — amcadan gelince doldurulacak
 - [ ] Google işletme profiline iyi fotoğraflar + site adresi eklemek
 - [ ] (ops.) WhatsApp sipariş butonu
@@ -237,4 +241,5 @@ Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işlet
 | 2026-07-11 | Site sıfırdan yazıldı, test edildi, GitHub Pages'te yayına alındı (v1 canlı) |
 | 2026-07-23 | Bu dosya proje hafızasına dönüştürüldü; saatler 11:30–22:00 olarak düzeltildi (ikisi de teyitli); galeri foto slotları fallback'li hale getirildi → **push edildi, canlıda** (`b500e35`) |
 | 2026-07-23 | Hero'ya `dis-cephe.jpg` foto slotu açıldı (koyu okunurluk katmanıyla); foto çekim rehberi (4b) ve alan adı planı (4c) yazıldı |
-| 2026-07-23 | Adres kararı: **ücretsiz yol**, `.com` ertelendi. TR erişim testi yapıldı (pages.dev engelli, netlify/vercel/github.io açık) → **Netlify seçildi** (yeni hesap gerektirmediği için). Adımlar 4c'de, sıra kullanıcıda |
+| 2026-07-23 | Adres kararı: **ücretsiz yol**, `.com` ertelendi. TR erişim testi yapıldı (pages.dev engelli, netlify/vercel/github.io açık) → **Netlify seçildi** (yeni hesap gerektirmediği için) |
+| 2026-07-23 | ✅ **Netlify kurulumu tamamlandı — https://lezzetocakbasi.netlify.app CANLI.** HTTPS, saatler, tüm bölümler, telefon linki tarayıcıyla doğrulandı. Adres etiketleri yeni adrese çevrildi. Sıradaki: fotoğraflar |
