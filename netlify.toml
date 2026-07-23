@@ -1,0 +1,17 @@
+# Netlify yapılandırması — site saf HTML/CSS/JS, derleme adımı yok.
+# Bu dosya sayesinde Netlify arayüzünde build ayarı seçmeye gerek kalmaz.
+
+[build]
+  publish = "."
+  command = ""
+
+# Fotoğraflar ve stil dosyaları tarayıcıda önbelleklensin (site daha hızlı açılır)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

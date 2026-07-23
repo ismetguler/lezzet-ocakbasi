@@ -135,49 +135,6 @@ Hero'da fotoğrafın üstünde koyu katman var → hangi foto konursa konsun yaz
 
 ---
 
-## 4c. 🌐 ALAN ADI (domain) PLANI
-
-**Sorun:** `ismetguler.github.io/lezzet-ocakbasi` adresi işletme için uygun değil — kartvizite, tabelaya, Google profiline yazılmaz.
-
-### ✅ SEÇİLEN YOL (23 Tem 2026): ÜCRETSİZ — `lezzetocakbasi.github.io`
-Kullanıcı kararı: para vermeden, adreste sadece işletme adı görünsün yeter.
-Neden github.io: Türkiye'den sorunsuz açıldığı **test edilmiş** durumda. (netlify.app / vercel.app'te bu garanti yok, pages.dev zaten engelli.)
-
-**Plan: yeni repo açmak YOK — mevcut repo taşınıyor.** Site, geçmiş, her şey aynen gelir.
-
-| # | Adım | Kim yapar |
-|---|---|---|
-| 1 | GitHub'da yeni hesap aç — kullanıcı adı **tam olarak** `lezzetocakbasi`. Farklı e-posta gerekir: amcanın e-postası (en doğrusu, işletmenin hesabı olur) veya `gulerrismet+ocakbasi@gmail.com` (Gmail'de bu çalışır, aynı kutuya düşer). E-postayı doğrula. | **Kullanıcı** (hesap açmayı Claude yapamaz) |
-| 2 | `ismetguler/lezzet-ocakbasi` → Settings → Repository name → **`lezzetocakbasi.github.io`** → Rename | Kullanıcı |
-| 3 | Aynı Settings sayfasının en altı → Danger Zone → **Transfer ownership** → yeni sahip: `lezzetocakbasi` | Kullanıcı |
-| 4 | `lezzetocakbasi` hesabına giriş → gelen transfer davetini **kabul et** | Kullanıcı |
-| 5 | Yeni hesapta repo → Settings → Collaborators → **`ismetguler`** ekle (Write yetkisi) → *bu sayede bu bilgisayardan push çalışmaya devam eder, yeni token gerekmez* | Kullanıcı |
-| 6 | Settings → Pages → Source: `main` / kök (`/`) → Save | Kullanıcı |
-| 7 | Yerelde remote adresini güncelle: `git remote set-url origin https://github.com/lezzetocakbasi/lezzetocakbasi.github.io.git` | **Claude** |
-| 8 | `index.html` içindeki OG/canonical/JSON-LD adreslerini yeni adrese çevir | **Claude** |
-
-**Sonuç adres: `https://lezzetocakbasi.github.io`** (alt klasör yok, sade)
-
-⚠️ Repo adı `kullanıcıadı.github.io` ile **birebir aynı** olmalı — user page kuralı bu. Yanlış isimde adres `lezzetocakbasi.github.io/repoadi` olur.
-⚠️ Adım 2'den sonra eski adres bir süre yönlendirir ama kalıcı sayma; Google profiline yeni adresi yaz.
-
-### 💰 İLERİDE İSTENİRSE (ücretli, şimdilik ERTELENDİ): `lezzetocakbasi.com`
-- 23 Tem 2026 itibarıyla RDAP kaydında görünmüyor → **boşta.** (Sonra bakılırsa tekrar kontrol et, kapılmış olabilir.)
-- Maliyet: yılda yaklaşık 300–600 TL (sadece alan adı). **Hosting yine bedava kalıyor** — GitHub Pages'te durmaya devam eder.
-- Nereden: Türkiye'den Natro / İsimtescil / Turhost, yurtdışından Namecheap. (İlk yıl indirimli, 2. yıl tam fiyat — yenileme fiyatına bak.)
-- ⚠️ `.com.tr` ALMA — vergi levhası/marka belgesi ister, uğraştırır. Düz `.com` yeterli ve daha tanıdık.
-
-**Bağlama adımları (alan adı alındıktan sonra):**
-1. Alan adı panelinde DNS'e 4 adet **A kaydı** ekle (`@` için):
-   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-2. Bir de **CNAME kaydı**: `www` → `ismetguler.github.io`
-3. Repo köküne `CNAME` adında dosya (uzantısız), içine tek satır: `lezzetocakbasi.com` → commit + push
-4. GitHub → repo → Settings → Pages → Custom domain'e `lezzetocakbasi.com` yaz → Save
-5. DNS yayılınca (birkaç saat) **"Enforce HTTPS"** kutusunu işaretle
-6. Sonra: Google işletme profiline site adresi olarak bunu ekle + `index.html` içindeki JSON-LD/OG etiketlerindeki adresleri güncelle
-
-**Not:** `.com` alınırsa yukarıdaki github.io kurulumu boşa gitmez — aynı repoya `CNAME` dosyası eklenip DNS bağlanır, adres üstüne biner. Yani ücretsiz yolla başlamak ileriyi kapatmıyor.
-
 ### 🍽️ Menü fiyatı girmek
 `index.html` içinde `MENU-PLACEHOLDER` yorumunu ara.
 Her ürün: `<article class="menu-item" data-cat="...">`
@@ -191,6 +148,51 @@ Fiyat için `<span class="price">—</span>` içindeki tireyi sil, fiyatı yaz.
 4. İletişim → "Çalışma Saatleri · Her gün 11:30 – 22:00" (satır ~269)
 
 Kontrol komutu: `grep -n "11:30\|22:00" index.html` → 4 satır dönmeli.
+
+---
+
+## 4c. 🌐 SİTE ADRESİ PLANI — NETLIFY
+
+**Sorun:** `ismetguler.github.io/lezzet-ocakbasi` işletme adresi olamaz — kartvizite, tabelaya, Google profiline yazılmaz.
+
+### ✅ KARAR (23 Tem 2026): ÜCRETSİZ → `lezzetocakbasi.netlify.app`
+Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işletme adı görünsün yeter.
+
+**Erişim testi (23 Tem 2026, kullanıcının TR bağlantısından, tarayıcıyla):**
+
+| Alan adı | Sonuç |
+|---|---|
+| `github.io` | ✅ açılıyor |
+| `netlify.app` | ✅ açılıyor |
+| `vercel.app` | ✅ açılıyor |
+| `pages.dev` | ❌ **ENGELLİ** — bağlantı reddedildi. **KULLANMA.** |
+
+**Neden Netlify, github.io taşıma değil:** GitHub yolu yeni hesap + e-posta doğrulama + repo transferi + collaborator ayarı istiyordu (6 adım, 2 hesap). Netlify **mevcut GitHub hesabıyla giriş** kabul ediyor → yeni hesap yok. Push akışı da aynı kalıyor: `git push` → Netlify otomatik yayınlıyor.
+
+**Kurulum adımları:**
+
+| # | Adım | Kim yapar |
+|---|---|---|
+| 1 | netlify.com → **"Log in with GitHub"** (mevcut `ismetguler` hesabı, yeni hesap AÇMA) | **Kullanıcı** |
+| 2 | Add new site → **Import an existing project** → GitHub → `lezzet-ocakbasi` reposunu seç | Kullanıcı |
+| 3 | Build ayarları **BOŞ BIRAK** (build command yok, publish directory boş/kök). Site saf HTML, derleme yok. → Deploy | Kullanıcı |
+| 4 | Site settings → **Change site name** → `lezzetocakbasi` yaz | Kullanıcı |
+| 5 | Adresi kontrol et: `https://lezzetocakbasi.netlify.app` | Kullanıcı |
+| 6 | `index.html` içindeki OG / canonical / JSON-LD adreslerini yeni adrese çevir | **Claude** |
+| 7 | Google işletme profiline site adresi olarak bunu yaz | Kullanıcı |
+
+⚠️ Adım 4'te isim doluysa `lezzetocakbasitalas` dene.
+⚠️ GitHub Pages KAPATILMIYOR — `ismetguler.github.io/lezzet-ocakbasi` yedek olarak arka planda kalsın, zararı yok.
+- İş akışı değişmiyor: dosya düzenle → `git push` → Netlify 1-2 dk'da yayınlar.
+- Netlify ücretsiz plan: 100 GB/ay trafik. Bir ocakbaşı sitesi için pratikte sınırsız.
+
+### 💰 İLERİDE İSTENİRSE (ücretli, ERTELENDİ): `lezzetocakbasi.com`
+- 23 Tem 2026 itibarıyla RDAP'ta kayıtlı değil → **boşta.** (Sonra bakılırsa tekrar kontrol et, kapılmış olabilir.)
+- Yılda ~300–600 TL, sadece alan adı — hosting yine bedava kalır (Netlify'da durur).
+- Nereden: Natro / İsimtescil / Turhost / Namecheap. Yenileme fiyatına bak, ilk yıl indirimlidir.
+- ⚠️ `.com.tr` ALMA — vergi levhası/marka belgesi ister. Düz `.com` yeterli.
+- **Kullanıcının asıl çekincesi:** yenilemeyi unutup adresi kaptırmak. Ücretsiz adreste bu risk yok, o yüzden ertelendi.
+- Alınırsa: Netlify → Domain management → Add custom domain → Netlify'ın verdiği DNS kayıtlarını alan adı paneline gir. Ücretsiz SSL otomatik gelir. Yani bugünkü kurulum boşa gitmiyor.
 
 ---
 
@@ -211,7 +213,7 @@ Kontrol komutu: `grep -n "11:30\|22:00" index.html` → 4 satır dönmeli.
 
 - [ ] **Gerçek fotoğraflar** — kullanıcı çekecek → `assets/` (çekim rehberi: bölüm 4b)
       Öncelik sırası: `dis-cephe.jpg` (akşam) → `ocak.jpg` → `doner.jpg` → `sofra.jpg` → `salon.jpg` → `kebap.jpg` → `lavas.jpg`
-- [ ] **Adres taşıma → `lezzetocakbasi.github.io`** (ücretsiz yol seçildi). Kullanıcı 1-6. adımları yapacak, sonra Claude 7-8'i yapacak. Detay: bölüm 4c
+- [ ] **Adres → `lezzetocakbasi.netlify.app`** (ücretsiz yol seçildi). Kullanıcı 1-5. adımları yapacak, sonra Claude 6'yı yapacak. Detay: bölüm 4c
 - [ ] **Menü + fiyatlar** — amcadan gelince doldurulacak
 - [ ] Google işletme profiline iyi fotoğraflar + site adresi eklemek
 - [ ] (ops.) WhatsApp sipariş butonu
@@ -235,4 +237,4 @@ Kontrol komutu: `grep -n "11:30\|22:00" index.html` → 4 satır dönmeli.
 | 2026-07-11 | Site sıfırdan yazıldı, test edildi, GitHub Pages'te yayına alındı (v1 canlı) |
 | 2026-07-23 | Bu dosya proje hafızasına dönüştürüldü; saatler 11:30–22:00 olarak düzeltildi (ikisi de teyitli); galeri foto slotları fallback'li hale getirildi → **push edildi, canlıda** (`b500e35`) |
 | 2026-07-23 | Hero'ya `dis-cephe.jpg` foto slotu açıldı (koyu okunurluk katmanıyla); foto çekim rehberi (4b) ve alan adı planı (4c) yazıldı |
-| 2026-07-23 | Adres kararı: **ücretsiz yol** — `.com` ertelendi, repo `lezzetocakbasi.github.io`'ya taşınacak. Taşıma adımları 4c'ye yazıldı, sıra kullanıcının hesap açmasında |
+| 2026-07-23 | Adres kararı: **ücretsiz yol**, `.com` ertelendi. TR erişim testi yapıldı (pages.dev engelli, netlify/vercel/github.io açık) → **Netlify seçildi** (yeni hesap gerektirmediği için). Adımlar 4c'de, sıra kullanıcıda |
