@@ -238,6 +238,8 @@ Fiyatlar 3 Ağustos 2026'dan beri hem ana sayfada hem QR menü sayfasında geçi
 |---|---|---|
 | `index.html` | `<section class="section menu" id="menu">` | `<span class="menu-price-tag">140 ₺</span>` (görselin sağ altındaki rozet) |
 | `menu.html` | `<section data-panel="durum">` / `"servis"` | `<div class="price">140 <span>₺</span></div>` |
+| `baski/masa-menu-a5.html` | ürün satırları | `<div class="fiyat">140<small> ₺</small></div>` — **değişirse yeniden bastırılacak** |
+| `baski/masa-karti.html` | kampanya kutusu | `<div class="tutar">450<small> ₺</small></div>` |
 
 - Ürün blokları: `index.html`'de `<article class="menu-item" data-cat="...">`, `menu.html`'de `<article class="item">`.
 - Kategoriler (2 tane): **`durum`** / **`servis`**. Sekme `data-cat` değerleri ürünlerdekiyle birebir aynı olmalı.
@@ -254,6 +256,29 @@ zayıf internette bile anında açılsın diye. Sadece yemek SVG'leri dışarıd
   İkisi de 200 dönüyor (3 Ağu 2026'da doğrulandı); QR'a **uzantısız** olanı bas, daha temiz görünür.
 - ⚠️ Görsellerde `loading="lazy"` **KULLANMA** — sekmeyle gizlenen paneldeki lazy görseller tarayıcıda hiç yüklenmiyor (3 Ağu 2026'da test edilip görüldü). Dosyalar zaten minicik.
 - Kampanya bitince: `<section class="promo">` bloğunu burada da sil (ana sayfadakiyle birlikte).
+
+### 🖨️ BASILI MENÜ — `baski/` klasörü (3 Ağu 2026)
+
+**Amcanın uyarısı:** *"bizim müşteriler QR bilmez, direkt elle bir şey verelim."* Haklı — bu yüzden
+asıl menü **basılı**, QR sadece köşede duran bir ikram. Site QR'ı zorlamıyor.
+
+**A4 neden seçilmedi:** A4 masada kocaman durur, tabak/bardak arasında yer bulamaz, ilk yağ
+lekesinde çöpe gider ve elden ele dolaşınca kıvrılır. **A5 (yarısı)** tam el boyu, çift taraflı
+kullanılınca 11 ürün rahat sığıyor, lamine edilince silinip yıllarca kullanılıyor.
+
+| Dosya | Ne | Kağıt |
+|---|---|---|
+| `baski/masa-menu-a5.html` | Çift taraflı masa menüsü — ön: Dürüm + kampanya, arka: Porsiyon/Servis + telefon + QR | **A5, çift taraflı, mat lamine** |
+| `baski/masa-karti.html` | Masada dik duran katlanır kart — bir yüzü kampanya, diğer yüzü QR + telefon | **A4 tek yüz, 300gr, ortadan katlanır** |
+| `baski/qr-menu.svg` / `.png` | QR kodu, `https://lezzetocakbasi.netlify.app/menu` adresine bakar | SVG matbaa için, PNG 1800px |
+
+**Baskı adımları (ikisi de aynı):** Chrome'da aç → `Ctrl+P` → kağıt boyutunu seç → kenar boşlukları
+**Yok** → **"Arka plan grafikleri" kutusunu İŞARETLE** (bu unutulursa renkler basılmaz, en sık yapılan
+hata) → PDF olarak kaydet → matbaaya PDF'i ver.
+
+⚠️ Masa kartının üst yüzü **bilerek 180° ters** basılıyor; katlanınca düz duruyor. "Ters çıkmış" diye düzeltme.
+⚠️ QR yeniden üretilecekse: `python -m pip install segno`, sonra `segno.make(url, error='h')`.
+Hata düzeltme **H (%30)** seçildi — kod yağ/leke/çizik alsa bile okunmaya devam eder, masa menüsünde şart.
 
 ### 🎨 YEMEK GÖRSELLERİ — elle çizilmiş SVG'ler (3 Ağu 2026)
 Kullanıcının kararı: **stok fotoğraf yok** (dükkanın kendi yemeği değil, müşteriyi yanıltır).
@@ -411,8 +436,11 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
       Öncelik: `dis-cephe.jpg` (akşam) → `usta.jpg` → `doner.jpg` → `mangal.jpg` → `dis-masa.jpg` → `sofra.jpg` → `ocak.jpg` → `kebap.jpg` → `salon.jpg` → `lavas.jpg`
 - [ ] **Eksik fiyatlar amcaya sorulacak** — Et Dürüm, Hatay Usulü Dürüm (ikisi de tabelada yazıyor ama A4 listede yok), ayran/içecek, salata, ezme, çorba
 - [x] ~~**Menü ayrı tek sayfa yapılacak** (`menu.html`)~~ ✅ **YAPILDI 3 Ağu 2026**
-- [ ] **🎯 SIRADAKİ İŞ: QR kod üretilecek** → `https://lezzetocakbasi.netlify.app/menu.html` adresine → yazdırılıp masalara konacak.
-      (Site push edilip adres canlı doğrulandıktan SONRA üretilsin ki QR boş sayfaya bakmasın.)
+- [x] ~~**QR kod üretilecek**~~ ✅ **YAPILDI 3 Ağu 2026** — `baski/qr-menu.svg` + `.png`, `/menu` adresine bakıyor
+- [ ] **🎯 SIRADAKİ İŞ: baskıya gönderilecek** — `baski/` içindeki iki dosya PDF'e çevrilip matbaaya verilecek.
+      Adet: masa sayısı kadar A5 menü + 3-5 yedek, masa kartı da masa sayısı kadar.
+- [ ] (ops.) **Tezgah üstü / duvar panosu** (A3–A2) — paket alan, ayaküstü sipariş veren müşteri için.
+      Dönerci trafiğinin çoğu tezgahta; masaya oturmayan müşteri A5 menüyü hiç görmüyor. İstenirse yapılır.
 - [ ] **Fotoğraf düzenleme** — kırpma, boyut, ışık/renk, üzerine yazı ekleme (Claude yapacak, kullanıcı ham çekecek)
 - [ ] **WhatsApp sipariş butonu** — numara varsa
 - [ ] **Hakkında bölümü gerçek bilgilerle** — kuruluş yılı, ustanın hikâyesi, et tedariki
@@ -448,6 +476,7 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 | 2026-08-02 | ✅ **Dış cephe fotoğrafı hero'ya kondu**, `og:image` açıldı. Yerel test: menü sekmeleri, kampanya kartı, mobil 375px — taşma yok, hata yok |
 | 2026-08-02 | ✅ **Galeri bölümü geçici kapatıldı** (fotoğraf yok, boş gradyan duruyordu) — yorum satırına alındı, açma talimatı bölüm 4f |
 | 2026-08-02 | ✅ **Dış cephe fotoğrafından insanlar silindi** (kullanıcı isteği): ham çekim #2 temel alındı, alttan kırpıldı, kalan 3 kişi inpaint'lendi, ışık düzeltildi. Hamlar `_ham-*` olarak saklandı. Detay bölüm 4 |
+| 2026-08-03 | ✅ **QR kod üretildi** (`baski/qr-menu.svg`/`.png`, hata düzeltme H) + **basılı menü yapıldı**: `baski/masa-menu-a5.html` (A5 çift taraflı) ve `baski/masa-karti.html` (masada dik duran katlanır kart). Amcanın "müşterimiz QR bilmez" uyarısı üzerine kurgu değişti: **asıl menü basılı, QR köşede duran ikram.** A4 yerine A5 seçildi (gerekçe: bölüm 4g). Tarayıcıda ölçüldü: A5 iki yüz de 210mm'e tam oturuyor, kart iki yüzü 148,5mm, taşma yok |
 | 2026-08-03 | 🚨 **`assets/` klasörünün hiç repoda olmadığı fark edildi** (`?? assets/`). Yani `dis-cephe.jpg` ve `kampanya-afis.jpg` 2 Ağu'da "canlıya alındı" yazılmasına rağmen **push edilmemiş, canlıda hiç görünmemiş.** Bu commit'le eklendi, canlıda doğrulandı. Ayrıca `.gitignore` yazıldı: `assets/_*` (ham çekimler + A4 fiyat listesi fotoğrafı) artık repoya giremiyor |
 | 2026-08-03 | ✅ **YAYINLANDI** (`8802390`). Canlı doğrulama: `/menu` 200, 11/11 görsel yükleniyor, ana sayfada hero fotoğrafı ve kampanya afişi ilk kez gerçekten görünüyor, 375px'te taşma yok |
 | 2026-08-03 | ✅ **11 ürün tek tek araştırıldı ve her biri için elle SVG çizim yapıldı** (`assets/yemek-*.svg`). Kullanıcı kararı: stok fotoğraf yok, gerçek fotoğraf beklenmiyor, çizim. Ana sayfadaki menü görselli 3'lü karta çevrildi (fiyat görselin üstünde rozet), açıklamalar araştırmaya göre yeniden yazıldı. **`menu.html` QR menü sayfası yapıldı.** Tarayıcıda test: 11/11 görsel yükleniyor, sekmeler çalışıyor, 375px'te taşma yok, konsol temiz. ⚠️ Fiyatlar artık İKİ dosyada — bkz. bölüm 4e |

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<title>Lezzet Ocakbaşı — A5 Masa Menüsü (baskı)</title>
+<!--
+  ============================================================
+  BASKI DOSYASI — siteye konmaz, masaya konur.
+  A5 çift taraflı masa menüsü (148 × 210 mm).
+
+  NASIL BASILIR:
+    1. Bu dosyayı Chrome'da aç
+    2. Ctrl+P
+    3. Hedef: "PDF olarak kaydet"
+    4. Kağıt boyutu: A5   ·   Kenar boşlukları: Yok
+    5. "Arka plan grafikleri" KUTUSUNU İŞARETLE  ← en kritik adım
+    6. Kaydet → matbaaya bu PDF'i ver, "A5, çift taraflı, mat lamine" de
+
+  FİYAT DEĞİŞİRSE: burada da değişecek. Fiyatlar artık ÜÇ yerde:
+  index.html · menu.html · bu dosya. (PROGRESS.md bölüm 4e)
+  ============================================================
+-->
+<style>
+@page{ size:A5; margin:0 }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --kagit:#fdf8ef; --murekkep:#221c17; --soluk:#6d6157;
+  --kor:#c2521a; --altin:#9c7526; --cizgi:#ddd0bd;
+}
+body{
+  background:#8a8a8a; font-family:"Segoe UI",-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--murekkep); -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+.sheet{
+  width:148mm; height:210mm; background:var(--kagit); position:relative; overflow:hidden;
+  margin:10mm auto; padding:11mm 10mm 9mm; display:flex; flex-direction:column;
+}
+@media print{ body{background:none} .sheet{margin:0; page-break-after:always} .sheet:last-child{page-break-after:auto} }
+
+/* ---- başlık ---- */
+.head{text-align:center; padding-bottom:5mm; border-bottom:1.2pt solid var(--murekkep); margin-bottom:5mm}
+.head .ad{font-family:Georgia,"Times New Roman",serif; font-size:23pt; font-weight:700; letter-spacing:.6pt; line-height:1}
+.head .ad em{font-style:normal; color:var(--kor)}
+.head .alt{font-size:7.4pt; letter-spacing:2.6pt; text-transform:uppercase; color:var(--soluk); margin-top:2.6mm}
+.head .cizgi{display:flex; align-items:center; justify-content:center; gap:3mm; margin-top:3mm; color:var(--altin); font-size:8pt}
+.head .cizgi::before,.head .cizgi::after{content:""; height:.6pt; width:16mm; background:var(--altin); opacity:.6}
+
+/* ---- kategori ---- */
+.kat{
+  font-size:8.6pt; letter-spacing:3.4pt; text-transform:uppercase; color:var(--kor);
+  font-weight:700; text-align:center; margin:1mm 0 4mm;
+}
+
+/* ---- ürün satırı ---- */
+.urun{display:flex; align-items:center; gap:3.4mm; padding:2.6mm 0; border-bottom:.5pt dotted var(--cizgi)}
+.urun:last-child{border-bottom:0}
+.urun .gorsel{width:15mm; height:15mm; border-radius:2mm; overflow:hidden; flex:0 0 15mm; background:#221c17}
+.urun .gorsel img{width:100%; height:100%; object-fit:cover; display:block}
+.urun .bilgi{flex:1; min-width:0}
+.urun .ad{font-size:10.6pt; font-weight:700; line-height:1.15}
+.urun .tarif{font-size:7.4pt; color:var(--soluk); line-height:1.35; margin-top:.8mm}
+.urun .fiyat{
+  font-family:Georgia,"Times New Roman",serif; font-size:14pt; font-weight:700;
+  color:var(--kor); white-space:nowrap; padding-left:2mm;
+}
+.urun .fiyat small{font-size:9pt}
+
+/* ---- kampanya kutusu ---- */
+.kampanya{
+  margin-top:auto; border:1.4pt solid var(--kor); border-radius:2.5mm; padding:4mm 5mm;
+  background:rgba(194,82,26,.07); display:flex; align-items:center; gap:4mm;
+}
+.kampanya .sol{flex:1}
+.kampanya .etiket{font-size:7pt; letter-spacing:2.4pt; text-transform:uppercase; color:var(--kor); font-weight:700}
+.kampanya .baslik{font-size:13pt; font-weight:700; margin-top:1mm; line-height:1.15}
+.kampanya .yan{font-size:7.6pt; color:var(--soluk); margin-top:1.2mm}
+.kampanya .tutar{font-family:Georgia,serif; font-size:24pt; font-weight:700; color:var(--kor); line-height:1}
+.kampanya .tutar small{font-size:13pt}
+
+/* ---- alt ---- */
+.alt{text-align:center; font-size:7pt; color:var(--soluk); margin-top:4mm; line-height:1.5}
+
+/* ---- arka yüz: iletişim + QR ---- */
+.iletisim{
+  margin-top:auto; border-top:1.2pt solid var(--murekkep); padding-top:4.5mm;
+  display:flex; gap:5mm; align-items:center;
+}
+.iletisim .yazi{flex:1}
+.iletisim .tel{font-family:Georgia,serif; font-size:17pt; font-weight:700; line-height:1.1}
+.iletisim .satir{font-size:8pt; color:var(--soluk); margin-top:1.6mm; line-height:1.5}
+.qr{text-align:center; flex:0 0 30mm}
+.qr img{width:30mm; height:30mm; display:block}
+.qr .not{font-size:6.2pt; color:var(--soluk); margin-top:1.2mm; line-height:1.3}
+</style>
+</head>
+<body>
+
+<!-- ===================== ÖN YÜZ ===================== -->
+<section class="sheet">
+  <div class="head">
+    <div class="ad">Lezzet <em>Ocakbaşı</em></div>
+    <div class="alt">Talas · Kayseri</div>
+    <div class="cizgi">ODUN ATEŞİNDE</div>
+  </div>
+
+  <div class="kat">Dürüm</div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-tavuk-durum.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Tavuk Dürüm</div>
+      <div class="tarif">Közde dönen tavuk döner, ince lavaşta domates, marul ve sumaklı soğanla.</div>
+    </div>
+    <div class="fiyat">140<small> ₺</small></div>
+  </div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-tavuk-sis-durum.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Tavuk Şiş Dürüm</div>
+      <div class="tarif">Baharatla marine edilip ocakta közlenen tavuk kuşbaşı, sıcak lavaşta.</div>
+    </div>
+    <div class="fiyat">150<small> ₺</small></div>
+  </div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-kofte-durum.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Köfte Dürüm</div>
+      <div class="tarif">Elde yoğrulup dinlendirilen köfte, közlenmiş domates ve biberle.</div>
+    </div>
+    <div class="fiyat">240<small> ₺</small></div>
+  </div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-adana-durum.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Adana Dürüm</div>
+      <div class="tarif">Zırhla elde çekilen et, tuz ve acı pul biberle; sumaklı soğanla lavaşta.</div>
+    </div>
+    <div class="fiyat">240<small> ₺</small></div>
+  </div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-kuzu-sis-durum.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Kuzu Şiş Dürüm</div>
+      <div class="tarif">Marine edilip dinlendirilen kuzu kuşbaşı, közde pişip sıcak lavaşa geliyor.</div>
+    </div>
+    <div class="fiyat">280<small> ₺</small></div>
+  </div>
+
+  <div class="kampanya">
+    <div class="sol">
+      <div class="etiket">Kampanya</div>
+      <div class="baslik">1 KG Tavuk Kanat</div>
+      <div class="yan">Salata · Lavaş · Ezme dahil</div>
+    </div>
+    <div class="tutar">450<small> ₺</small></div>
+  </div>
+
+  <div class="alt">Her gün 11:30 – 22:00 · Paket servis vardır</div>
+</section>
+
+<!-- ===================== ARKA YÜZ ===================== -->
+<section class="sheet">
+  <div class="kat" style="margin-top:2mm">Porsiyon / Servis</div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-pilav-ustu-doner.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Pilav Üstü Tavuk Döner</div>
+      <div class="tarif">Tereyağlı pirinç pilavının üzerinde, ince ince kesilmiş közde tavuk döner.</div>
+    </div>
+    <div class="fiyat">200<small> ₺</small></div>
+  </div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-tavuk-sis-servis.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Tavuk Şiş Servis</div>
+      <div class="tarif">Marine tavuk kuşbaşı şişte közleniyor — dışı kızarmış, içi sulu.</div>
+    </div>
+    <div class="fiyat">300<small> ₺</small></div>
+  </div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-kanat-servis.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Kanat Servis</div>
+      <div class="tarif">Külü tutmuş közün üstünde ağır ağır pişen kanat: dışı çıtır, içi yumuşacık.</div>
+    </div>
+    <div class="fiyat">300<small> ₺</small></div>
+  </div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-kofte-servis.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Köfte Servis</div>
+      <div class="tarif">İyi yoğrulup dinlendirilen köfte harcı, ocakbaşında ızgarada.</div>
+    </div>
+    <div class="fiyat">480<small> ₺</small></div>
+  </div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-adana-servis.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Adana Servis</div>
+      <div class="tarif">Makine değil zırh işi: elde çekilen et, tuz ve acı pul biberle şişte közleniyor.</div>
+    </div>
+    <div class="fiyat">480<small> ₺</small></div>
+  </div>
+
+  <div class="urun">
+    <div class="gorsel"><img src="../assets/yemek-kuzu-sis-servis.svg" alt=""></div>
+    <div class="bilgi">
+      <div class="ad">Kuzu Şiş Servis</div>
+      <div class="tarif">Saatlerce marine edilip dinlendirilen kuzu kuşbaşı, közün aromasıyla.</div>
+    </div>
+    <div class="fiyat">550<small> ₺</small></div>
+  </div>
+
+  <div class="iletisim">
+    <div class="yazi">
+      <div class="tel">(0352) 431 44 00</div>
+      <div class="satir">
+        Mevlana Mah., 38280 Talas / Kayseri<br>
+        Her gün 11:30 – 22:00 · Paket servis vardır
+      </div>
+    </div>
+    <div class="qr">
+      <img src="qr-menu.svg" alt="Menü QR kodu">
+      <div class="not">Kamerayı tut,<br>güncel menü açılsın</div>
+    </div>
+  </div>
+
+  <div class="alt" style="margin-top:3mm">
+    Görseller tanıtım amaçlı çizimlerdir; sunum değişebilir.<br>
+    Fiyatlar 2 Ağustos 2026 tarihlidir.
+  </div>
+</section>
+
+</body>
+</html>
