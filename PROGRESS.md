@@ -249,6 +249,9 @@ Masadaki QR kod buraya bakacak. **Kasıtlı olarak tek dosya**: harici CSS/JS/fo
 zayıf internette bile anında açılsın diye. Sadece yemek SVG'leri dışarıdan geliyor (~5 KB/adet).
 - Yapısı: başlık → yapışkan sekmeler → kampanya kutusu → ürün listesi → altta sabit "Paket Sipariş / Ana Sayfa" çubuğu.
 - Ana sayfadan bağlantı: menü bölümünün altındaki **"📱 Telefonda Aç · Sade Menü"** butonu.
+- **QR kod için kullanılacak adres: `https://lezzetocakbasi.netlify.app/menu`**
+  Netlify "pretty URLs" özelliği `menu.html` linkini canlıda otomatik `/menu`'ye çeviriyor.
+  İkisi de 200 dönüyor (3 Ağu 2026'da doğrulandı); QR'a **uzantısız** olanı bas, daha temiz görünür.
 - ⚠️ Görsellerde `loading="lazy"` **KULLANMA** — sekmeyle gizlenen paneldeki lazy görseller tarayıcıda hiç yüklenmiyor (3 Ağu 2026'da test edilip görüldü). Dosyalar zaten minicik.
 - Kampanya bitince: `<section class="promo">` bloğunu burada da sil (ana sayfadakiyle birlikte).
 
@@ -445,5 +448,7 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 | 2026-08-02 | ✅ **Dış cephe fotoğrafı hero'ya kondu**, `og:image` açıldı. Yerel test: menü sekmeleri, kampanya kartı, mobil 375px — taşma yok, hata yok |
 | 2026-08-02 | ✅ **Galeri bölümü geçici kapatıldı** (fotoğraf yok, boş gradyan duruyordu) — yorum satırına alındı, açma talimatı bölüm 4f |
 | 2026-08-02 | ✅ **Dış cephe fotoğrafından insanlar silindi** (kullanıcı isteği): ham çekim #2 temel alındı, alttan kırpıldı, kalan 3 kişi inpaint'lendi, ışık düzeltildi. Hamlar `_ham-*` olarak saklandı. Detay bölüm 4 |
+| 2026-08-03 | 🚨 **`assets/` klasörünün hiç repoda olmadığı fark edildi** (`?? assets/`). Yani `dis-cephe.jpg` ve `kampanya-afis.jpg` 2 Ağu'da "canlıya alındı" yazılmasına rağmen **push edilmemiş, canlıda hiç görünmemiş.** Bu commit'le eklendi, canlıda doğrulandı. Ayrıca `.gitignore` yazıldı: `assets/_*` (ham çekimler + A4 fiyat listesi fotoğrafı) artık repoya giremiyor |
+| 2026-08-03 | ✅ **YAYINLANDI** (`8802390`). Canlı doğrulama: `/menu` 200, 11/11 görsel yükleniyor, ana sayfada hero fotoğrafı ve kampanya afişi ilk kez gerçekten görünüyor, 375px'te taşma yok |
 | 2026-08-03 | ✅ **11 ürün tek tek araştırıldı ve her biri için elle SVG çizim yapıldı** (`assets/yemek-*.svg`). Kullanıcı kararı: stok fotoğraf yok, gerçek fotoğraf beklenmiyor, çizim. Ana sayfadaki menü görselli 3'lü karta çevrildi (fiyat görselin üstünde rozet), açıklamalar araştırmaya göre yeniden yazıldı. **`menu.html` QR menü sayfası yapıldı.** Tarayıcıda test: 11/11 görsel yükleniyor, sekmeler çalışıyor, 375px'te taşma yok, konsol temiz. ⚠️ Fiyatlar artık İKİ dosyada — bkz. bölüm 4e |
 | 2026-07-23 | ✅ **Netlify kurulumu tamamlandı — https://lezzetocakbasi.netlify.app CANLI.** HTTPS, saatler, tüm bölümler, telefon linki tarayıcıyla doğrulandı. Adres etiketleri yeni adrese çevrildi. Sıradaki: fotoğraflar |
