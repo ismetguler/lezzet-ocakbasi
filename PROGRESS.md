@@ -298,6 +298,30 @@ Kaynak: [100 adet A4 4-renk menü ≈ 800–1.500 ₺](https://altinkayamatbaa.c
 
 **Kaç adet:** masa sayısı × 1,5 (yukarı yuvarla) + 3 yedek.
 Neden 1,5: kalabalık masada tek menü elden ele dolaşıyor, sipariş yavaşlıyor. Yedek: yırtılan/kaybolan için.
+**Kullanıcı kararı 3 Ağu 2026: 4-5 adet yeterli** (dükkan masa yoğunluğu düşük, paket ağırlıklı).
+
+### 🛡️ KORUMA YÖNTEMİ — laminasyon mu, şeffaf dosya mı? (3 Ağu 2026 araştırması)
+
+Kullanıcının sorusu: *"kâğıdı şeffaf bir şeyin içine koyuyorlardı, o daha mı ucuz?"*
+Gördüğü şey ya **poşet/L dosya** ya da **menü kabı (pleksi/PVC menü kılıfı)**. Karşılaştırma:
+
+| Yöntem | Birim (tahmini) | 5 adet | Artı / Eksi |
+|---|---|---|---|
+| **Laminasyon** ✅ seçilen | ~20–40 ₺ | ~100–200 ₺ | Tam kapalı, silinir, su/yağ geçmez, sert durur. Değişince yenisi basılır. |
+| Poşet / L dosya | ~3–8 ₺ | ~15–40 ₺ | En ucuz **ama üstü açık** → ocakbaşı buharı ve yağ içine giriyor, kâğıt kıvrılıyor, çizilen naylon puslanıyor. Ucuz duruyor. |
+| Menü kabı (pleksi/PVC) | ~100–300 ₺ | ~500–1.500 ₺ | Şık ama bu iş için fazla masraflı; 5 menü için mantıksız. |
+
+**Karar: laminasyon.** 5 adette poşet dosyayla arasındaki fark ~150 ₺ — o kadar para için
+ocakbaşında yağ çeken, kıvrılan bir menüye razı olunmaz. Lamine olan silinip yıllarca kullanılıyor.
+
+⚠️ Kırtasiyede **A5 laminasyon poşeti bulunmayabilir** — çoğu yerde A4 var. Sorun değil:
+A4 poşete koyup lamine ettir, sonra kenarından kestir. **Kenarda 3-5 mm şeffaf pay bırakılsın**,
+tam kenardan kesilirse lamine su alır ve açılmaya başlar.
+
+**Tahmini toplam (5 adet):** renkli çift taraflı baskı ~75–150 ₺ + laminasyon ~100–200 ₺ = **~200–350 ₺.**
+Kesin değil, Kayseri'de değişir — kırtasiyede önce fiyat sorulacak.
+Kaynak (malzeme maliyeti çapası): [A5 laminasyon filmi 100'lü ≈ 275–490 ₺](https://www.akakce.com/laminasyon-kagidi/a5-laminasyon-filmi.html),
+[A4 kalın poşet dosya 100'lü ≈ 522 ₺](https://www.akakce.com/poset-dosya.html).
 
 **Baskı adımları:** Chrome'da aç → `Ctrl+P` → kağıt boyutunu seç → kenar boşlukları
 **Yok** → **"Arka plan grafikleri" kutusunu İŞARETLE** (bu unutulursa renkler basılmaz, en sık yapılan
@@ -473,7 +497,7 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 - [ ] **🚨 ÖNCE: İÇECEK / SALATA / EZME / ÇORBA FİYATLARI** — kullanıcı amcadan öğrenecek.
       **Baskının önündeki tek engel bu.** Gelince menüye eklenecek (4 dosya: index, menu.html, A5, PROGRESS).
 - [ ] **🎯 SONRA: A5 masa menüsü bastırılacak** — `baski/masa-menu-a5.html` → PDF → kırtasiye.
-      Adet formülü: **masa sayısı × 1,5, yukarı yuvarla, + 3 yedek.** (Bkz. bölüm 4g.)
+      **4-5 adet, A5 çift taraflı renkli, mat laminasyon.** Tahmini ~200–350 ₺. (Bkz. bölüm 4g.)
 - [ ] ⏸️ **RAFA KALDIRILDI: tezgah üstü / duvar panosu** (A3–A2) — kullanıcı kararı 3 Ağu 2026:
       *"içecekler orada yazmıyor, onları da öğrenince yaparız."* İçecek fiyatları gelince tekrar gündeme gelecek.
       Gerekçe duruyor: dönerci trafiğinin çoğu tezgahta, masaya oturmayan müşteri A5'i hiç görmüyor.
