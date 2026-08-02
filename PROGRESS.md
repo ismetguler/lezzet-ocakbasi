@@ -269,14 +269,47 @@ kullanılınca 11 ürün rahat sığıyor, lamine edilince silinip yıllarca kul
 | Dosya | Ne | Kağıt |
 |---|---|---|
 | `baski/masa-menu-a5.html` | Çift taraflı masa menüsü — ön: Dürüm + kampanya, arka: Porsiyon/Servis + telefon + QR | **A5, çift taraflı, mat lamine** |
-| `baski/masa-karti.html` | Masada dik duran katlanır kart — bir yüzü kampanya, diğer yüzü QR + telefon | **A4 tek yüz, 300gr, ortadan katlanır** |
 | `baski/qr-menu.svg` / `.png` | QR kodu, `https://lezzetocakbasi.netlify.app/menu` adresine bakar | SVG matbaa için, PNG 1800px |
 
-**Baskı adımları (ikisi de aynı):** Chrome'da aç → `Ctrl+P` → kağıt boyutunu seç → kenar boşlukları
+❌ **Masa kartı (dik duran katlanır kart) İPTAL** — kullanıcı istemedi (3 Ağu 2026): *"masa kartı olmasın, direkt masa menüsü olsun."*
+`baski/masa-karti.html` silindi. QR zaten A5'in arka yüzünde duruyor, kayıp yok. İleride istenirse
+git geçmişinden (`e1aa69c`) geri alınabilir.
+
+### 🚨 BASKIDAN ÖNCE OKU — İÇECEK RİSKİ (3 Ağu 2026)
+**Menüde içecek YOK.** Ayran, kola, su, salata, ezme, çorba fiyatları hâlâ bilinmiyor (bkz. bölüm 6).
+Lamine baskının geri dönüşü yoktur — içecekler sonradan eklenirse **basılan her nüsha çöp olur.**
+
+Bu yüzden A5'in arkasına şu satır kondu: *"İçecek, salata ve ezme fiyatları için sorunuz."*
+Menü eksik görünmüyor, ama kalıcı çözüm değil.
+
+**Karar:** kullanıcı içecek fiyatlarını amcadan öğrenecek. Öğrenilince menüye eklenip
+**ondan sonra** tam sayıda bastırılacak. Acilse önce **3-5 adet deneme** bastırılır, gerisi beklenir.
+
+**💰 Tahmini maliyet (3 Ağu 2026 araştırması — kesin değil, teklif alınacak):**
+
+| Yol | Adet | Tahmini birim | Not |
+|---|---|---|---|
+| Mahalle kırtasiyesi (baskı + lamine) | 10–30 | **~40–80 ₺** | Az adet için mantıklı, hemen alırsın |
+| Matbaa (kuşe + mat selefon) | 100 | **~10–20 ₺** | Toplamda ucuz ama 100 adet fazla, fiyat değişince hepsi çöp |
+
+Bir ocakbaşı için **kırtasiye yolu doğru** — az bastır, fiyat değişince yenile.
+Kaynak: [100 adet A4 4-renk menü ≈ 800–1.500 ₺](https://altinkayamatbaa.com/blog/restoran-menu-baski-rehberi),
+[A5 laminasyon filmi 100'lü ≈ 275–490 ₺](https://www.akakce.com/laminasyon-kagidi/a5-laminasyon-filmi.html) (sadece malzeme, işçilik hariç).
+
+**Kaç adet:** masa sayısı × 1,5 (yukarı yuvarla) + 3 yedek.
+Neden 1,5: kalabalık masada tek menü elden ele dolaşıyor, sipariş yavaşlıyor. Yedek: yırtılan/kaybolan için.
+
+**Baskı adımları:** Chrome'da aç → `Ctrl+P` → kağıt boyutunu seç → kenar boşlukları
 **Yok** → **"Arka plan grafikleri" kutusunu İŞARETLE** (bu unutulursa renkler basılmaz, en sık yapılan
 hata) → PDF olarak kaydet → matbaaya PDF'i ver.
 
-⚠️ Masa kartının üst yüzü **bilerek 180° ters** basılıyor; katlanınca düz duruyor. "Ters çıkmış" diye düzeltme.
+**Kırtasiyede söylenecek cümle:**
+> "Bu PDF'i **A5 boyutunda, çift taraflı, renkli** basar mısınız? Sonra da **A5 laminasyon**
+> yapalım, mat olsun. Kağıt **170-200 gram kuşe** olsun, ince kağıt lamine içinde kırışıyor."
+
+Kontrol: baskı elimize gelince **arka yüz ön yüzle aynı hizada mı** bak (çift taraflı baskıda
+kayma olur). Kaymışsa bastırma, düzelttir.
+
 ⚠️ QR yeniden üretilecekse: `python -m pip install segno`, sonra `segno.make(url, error='h')`.
 Hata düzeltme **H (%30)** seçildi — kod yağ/leke/çizik alsa bile okunmaya devam eder, masa menüsünde şart.
 
@@ -437,10 +470,13 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 - [ ] **Eksik fiyatlar amcaya sorulacak** — Et Dürüm, Hatay Usulü Dürüm (ikisi de tabelada yazıyor ama A4 listede yok), ayran/içecek, salata, ezme, çorba
 - [x] ~~**Menü ayrı tek sayfa yapılacak** (`menu.html`)~~ ✅ **YAPILDI 3 Ağu 2026**
 - [x] ~~**QR kod üretilecek**~~ ✅ **YAPILDI 3 Ağu 2026** — `baski/qr-menu.svg` + `.png`, `/menu` adresine bakıyor
-- [ ] **🎯 SIRADAKİ İŞ: baskıya gönderilecek** — `baski/` içindeki iki dosya PDF'e çevrilip matbaaya verilecek.
-      Adet: masa sayısı kadar A5 menü + 3-5 yedek, masa kartı da masa sayısı kadar.
-- [ ] (ops.) **Tezgah üstü / duvar panosu** (A3–A2) — paket alan, ayaküstü sipariş veren müşteri için.
-      Dönerci trafiğinin çoğu tezgahta; masaya oturmayan müşteri A5 menüyü hiç görmüyor. İstenirse yapılır.
+- [ ] **🚨 ÖNCE: İÇECEK / SALATA / EZME / ÇORBA FİYATLARI** — kullanıcı amcadan öğrenecek.
+      **Baskının önündeki tek engel bu.** Gelince menüye eklenecek (4 dosya: index, menu.html, A5, PROGRESS).
+- [ ] **🎯 SONRA: A5 masa menüsü bastırılacak** — `baski/masa-menu-a5.html` → PDF → kırtasiye.
+      Adet formülü: **masa sayısı × 1,5, yukarı yuvarla, + 3 yedek.** (Bkz. bölüm 4g.)
+- [ ] ⏸️ **RAFA KALDIRILDI: tezgah üstü / duvar panosu** (A3–A2) — kullanıcı kararı 3 Ağu 2026:
+      *"içecekler orada yazmıyor, onları da öğrenince yaparız."* İçecek fiyatları gelince tekrar gündeme gelecek.
+      Gerekçe duruyor: dönerci trafiğinin çoğu tezgahta, masaya oturmayan müşteri A5'i hiç görmüyor.
 - [ ] **Fotoğraf düzenleme** — kırpma, boyut, ışık/renk, üzerine yazı ekleme (Claude yapacak, kullanıcı ham çekecek)
 - [ ] **WhatsApp sipariş butonu** — numara varsa
 - [ ] **Hakkında bölümü gerçek bilgilerle** — kuruluş yılı, ustanın hikâyesi, et tedariki
@@ -476,6 +512,7 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 | 2026-08-02 | ✅ **Dış cephe fotoğrafı hero'ya kondu**, `og:image` açıldı. Yerel test: menü sekmeleri, kampanya kartı, mobil 375px — taşma yok, hata yok |
 | 2026-08-02 | ✅ **Galeri bölümü geçici kapatıldı** (fotoğraf yok, boş gradyan duruyordu) — yorum satırına alındı, açma talimatı bölüm 4f |
 | 2026-08-02 | ✅ **Dış cephe fotoğrafından insanlar silindi** (kullanıcı isteği): ham çekim #2 temel alındı, alttan kırpıldı, kalan 3 kişi inpaint'lendi, ışık düzeltildi. Hamlar `_ham-*` olarak saklandı. Detay bölüm 4 |
+| 2026-08-03 | 🔧 **Masa kartı iptal edildi** (kullanıcı: "direkt masa menüsü olsun"), **duvar panosu rafa kaldırıldı** (içecekler bilinmiyor). A5'in arkasına *"İçecek, salata ve ezme fiyatları için sorunuz"* satırı eklendi. Baskı fiyat araştırması ve kırtasiyede söylenecek cümle bölüm 4g'ye yazıldı. **Baskı, içecek fiyatları gelene kadar bekliyor** |
 | 2026-08-03 | ✅ **QR kod üretildi** (`baski/qr-menu.svg`/`.png`, hata düzeltme H) + **basılı menü yapıldı**: `baski/masa-menu-a5.html` (A5 çift taraflı) ve `baski/masa-karti.html` (masada dik duran katlanır kart). Amcanın "müşterimiz QR bilmez" uyarısı üzerine kurgu değişti: **asıl menü basılı, QR köşede duran ikram.** A4 yerine A5 seçildi (gerekçe: bölüm 4g). Tarayıcıda ölçüldü: A5 iki yüz de 210mm'e tam oturuyor, kart iki yüzü 148,5mm, taşma yok |
 | 2026-08-03 | 🚨 **`assets/` klasörünün hiç repoda olmadığı fark edildi** (`?? assets/`). Yani `dis-cephe.jpg` ve `kampanya-afis.jpg` 2 Ağu'da "canlıya alındı" yazılmasına rağmen **push edilmemiş, canlıda hiç görünmemiş.** Bu commit'le eklendi, canlıda doğrulandı. Ayrıca `.gitignore` yazıldı: `assets/_*` (ham çekimler + A4 fiyat listesi fotoğrafı) artık repoya giremiyor |
 | 2026-08-03 | ✅ **YAYINLANDI** (`8802390`). Canlı doğrulama: `/menu` 200, 11/11 görsel yükleniyor, ana sayfada hero fotoğrafı ve kampanya afişi ilk kez gerçekten görünüyor, 375px'te taşma yok |
