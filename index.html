@@ -16,11 +16,8 @@
 <meta property="og:title" content="Lezzet Ocakbaşı | Talas Kayseri" />
 <meta property="og:description" content="Közde döner, kebap ve mangal keyfi. Odun ateşinde pişen gerçek lezzet. Her gün 11:30–22:00 · (0352) 431 44 00" />
 <meta property="og:locale" content="tr_TR" />
-<!-- FOTO GELİNCE AÇ: dış cephe fotoğrafı assets/'e eklenince alttaki 2 satırın başındaki
-     yorum işaretlerini kaldır → WhatsApp'ta link atınca büyük görsel çıkar.
 <meta property="og:image" content="https://lezzetocakbasi.netlify.app/assets/dis-cephe.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
--->
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,9 +63,12 @@
     <span class="brand-text">Lezzet<em>Ocakbaşı</em></span>
   </a>
   <nav class="nav-links" id="navLinks">
+    <a href="#kampanya" class="nav-hot">Kampanya</a>
     <a href="#hakkinda">Hakkında</a>
     <a href="#menu">Menü</a>
+    <!-- GALERİ LİNKİ — fotoğraflar çekilince bu satırın yorumunu kaldır:
     <a href="#galeri">Galeri</a>
+    -->
     <a href="#yorumlar">Yorumlar</a>
     <a href="#iletisim">İletişim</a>
     <a href="tel:+903524314400" class="nav-call">Ara</a>
@@ -99,7 +99,48 @@
       <div class="stat"><b data-count="22">00</b><span>:00'ye kadar açık</span></div>
     </div>
   </div>
-  <a href="#hakkinda" class="scroll-hint" aria-label="Aşağı kaydır"><span></span></a>
+  <a href="#kampanya" class="scroll-hint" aria-label="Aşağı kaydır"><span></span></a>
+</section>
+
+<!-- ============================================================= -->
+<!-- KAMPANYA — sayfanın en üst bölümü.                            -->
+<!-- Kampanya değişince: başlık, yanındakiler, fiyat ve            -->
+<!-- assets/kampanya-afis.jpg dosyası değiştirilir. Kampanya       -->
+<!-- bitince bu <section> komple silinir (nav'daki link de).       -->
+<!-- Detaylı anlatım: PROGRESS.md bölüm 4d                         -->
+<!-- ============================================================= -->
+<section class="promo" id="kampanya">
+  <div class="promo-inner reveal">
+
+    <figure class="promo-visual">
+      <img src="assets/kampanya-afis.jpg"
+           alt="Lezzet Ocakbaşı kampanyası: 1 kg tavuk kanat, yanında salata, lavaş ve ezme — 450 TL"
+           loading="eager" fetchpriority="high" width="2048" height="1536" />
+    </figure>
+
+    <div class="promo-body">
+      <span class="promo-badge">🔥 Kampanya</span>
+      <h2 class="promo-title"><span class="promo-kg">1 KG</span> Tavuk Kanat</h2>
+      <p class="promo-lead">Ocakta közlenmiş çıtır kanat — yanında hepsi dahil:</p>
+
+      <ul class="promo-extras">
+        <li><span>🥗</span> Salata</li>
+        <li><span>🫓</span> Lavaş</li>
+        <li><span>🌶️</span> Ezme</li>
+      </ul>
+
+      <div class="promo-price">
+        <b>450</b><span>₺</span>
+      </div>
+
+      <div class="promo-cta">
+        <a href="tel:+903524314400" class="btn btn-primary">📞 Paket Sipariş Ver</a>
+        <a href="#menu" class="btn btn-ghost">Tüm Menü</a>
+      </div>
+      <p class="promo-note">Sınırlı süreli kampanya · İçeride & paket serviste geçerli</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- HAKKINDA -->
@@ -132,96 +173,160 @@
 
 <!-- MENÜ -->
 <!-- ============================================================= -->
-<!-- MENU-PLACEHOLDER: Amcadan gerçek menü + fiyatlar gelince      -->
-<!-- buradaki .menu-item'lar güncellenecek. Yapı hazır.           -->
+<!-- FİYATLAR GERÇEK — dükkandaki listeden alındı (2 Ağustos 2026). -->
+<!-- Fiyat değişince: sadece <span class="price">140 ₺</span>       -->
+<!-- içindeki sayıyı değiştir. Detay: PROGRESS.md bölüm 4e         -->
 <!-- ============================================================= -->
 <section class="section menu" id="menu">
   <div class="section-head reveal">
     <p class="kicker">Menümüz</p>
     <h2>Ocaktan Sofraya</h2>
-    <p class="section-note">Fiyatlar ve tam menü yakında güncellenecektir.</p>
+    <p class="section-note">Fiyatlar 2 Ağustos 2026 tarihlidir. Paket servis için: (0352) 431 44 00</p>
   </div>
 
   <div class="menu-tabs reveal">
-    <button class="menu-tab active" data-cat="doner">Döner</button>
-    <button class="menu-tab" data-cat="kebap">Kebap & Izgara</button>
-    <button class="menu-tab" data-cat="baslangic">Başlangıç</button>
-    <button class="menu-tab" data-cat="icecek">İçecek</button>
+    <button class="menu-tab active" data-cat="durum">Dürüm</button>
+    <button class="menu-tab" data-cat="servis">Porsiyon / Servis</button>
   </div>
 
   <div class="menu-grid" id="menuGrid">
-    <!-- Döner -->
-    <article class="menu-item" data-cat="doner">
-      <div class="menu-item-top"><h3>Tavuk Döner Porsiyon</h3><span class="price">—</span></div>
-      <p>Odun ateşinde pişen, lavaş üzerinde bol garnitürlü tavuk döner.</p>
+    <!-- DÜRÜM -->
+    <article class="menu-item" data-cat="durum">
+      <figure class="menu-shot">
+        <img src="assets/yemek-tavuk-durum.svg" alt="Tavuk dürüm — közde dönen tavuk döner, ince lavaşa sarılmış" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">140 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Tavuk Dürüm</h3></div>
+        <p>Közde dönen tavuk döner; ince lavaşta domates, marul ve sumaklı soğanla dürülüyor.</p>
+      </div>
     </article>
-    <article class="menu-item" data-cat="doner">
-      <div class="menu-item-top"><h3>Et Döner Porsiyon</h3><span class="price">—</span></div>
-      <p>Günlük hazırlanan et döner, közün eşsiz aromasıyla.</p>
+    <article class="menu-item" data-cat="durum">
+      <figure class="menu-shot">
+        <img src="assets/yemek-tavuk-sis-durum.svg" alt="Tavuk şiş dürüm — ocakta közlenmiş marine tavuk kuşbaşı, lavaşa sarılmış" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">150 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Tavuk Şiş Dürüm</h3></div>
+        <p>Zeytinyağı ve baharatla marine edilip ocakta közlenen tavuk kuşbaşı, sıcak lavaşa sarılıyor.</p>
+      </div>
     </article>
-    <article class="menu-item" data-cat="doner">
-      <div class="menu-item-top"><h3>Döner Dürüm</h3><span class="price">—</span></div>
-      <p>İnce lavaşta, közlenmiş domates ve biberle sarılı dürüm.</p>
+    <article class="menu-item" data-cat="durum">
+      <figure class="menu-shot">
+        <img src="assets/yemek-kofte-durum.svg" alt="Köfte dürüm — el yapımı ızgara köfte, közlenmiş domates ve biberle lavaşta" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">240 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Köfte Dürüm</h3></div>
+        <p>Elde yoğrulup dinlendirilen köfte harcı ızgarada pişiyor, közlenmiş domates ve biberle dürümde.</p>
+      </div>
     </article>
-    <article class="menu-item" data-cat="doner">
-      <div class="menu-item-top"><h3>İskender</h3><span class="price">—</span></div>
-      <p>Tereyağı, domates sos ve yoğurt eşliğinde klasik iskender.</p>
+    <article class="menu-item" data-cat="durum">
+      <figure class="menu-shot">
+        <img src="assets/yemek-adana-durum.svg" alt="Adana dürüm — zırhla çekilmiş acılı kıyma kebabı, sumaklı soğanla lavaşta" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">240 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Adana Dürüm</h3></div>
+        <p>Zırhla elde çekilen et, tuz ve acı pul biberden başka bir şey almadan közde pişiyor; lavaşta sumaklı soğanla.</p>
+      </div>
+    </article>
+    <article class="menu-item" data-cat="durum">
+      <figure class="menu-shot">
+        <img src="assets/yemek-kuzu-sis-durum.svg" alt="Kuzu şiş dürüm — marine kuzu kuşbaşı közde pişip lavaşa sarılmış" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">280 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Kuzu Şiş Dürüm</h3></div>
+        <p>Marine edilip dinlendirilen kuzu kuşbaşı közde pişiyor, sıcacık lavaşa sarılıp geliyor.</p>
+      </div>
     </article>
 
-    <!-- Kebap -->
-    <article class="menu-item" data-cat="kebap">
-      <div class="menu-item-top"><h3>Adana Kebap</h3><span class="price">—</span></div>
-      <p>Zırh ile çekilmiş, közde pişen acılı Adana.</p>
+    <!-- PORSİYON / SERVİS -->
+    <article class="menu-item" data-cat="servis">
+      <figure class="menu-shot">
+        <img src="assets/yemek-pilav-ustu-doner.svg" alt="Pilav üstü tavuk döner — tereyağlı pirinç pilavının üzerinde közde tavuk döner" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">200 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Pilav Üstü Tavuk Döner</h3></div>
+        <p>Tereyağlı pirinç pilavının üzerinde, közde dönüp ince ince kesilen tavuk döner.</p>
+      </div>
     </article>
-    <article class="menu-item" data-cat="kebap">
-      <div class="menu-item-top"><h3>Urfa Kebap</h3><span class="price">—</span></div>
-      <p>Acısız, közlenmiş etin yumuşak lezzeti.</p>
+    <article class="menu-item" data-cat="servis">
+      <figure class="menu-shot">
+        <img src="assets/yemek-tavuk-sis-servis.svg" alt="Tavuk şiş servis — ocakta pişmiş marine tavuk şiş, lavaş yatağında" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">300 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Tavuk Şiş Servis</h3></div>
+        <p>Marine edilmiş tavuk kuşbaşı şişe dizilip közün üstünde çevriliyor — dışı kızarmış, içi sulu.</p>
+      </div>
     </article>
-    <article class="menu-item" data-cat="kebap">
-      <div class="menu-item-top"><h3>Kuzu Şiş</h3><span class="price">—</span></div>
-      <p>Marine edilmiş kuzu etinin ocakta pişmiş hali.</p>
+    <article class="menu-item" data-cat="servis">
+      <figure class="menu-shot">
+        <img src="assets/yemek-kanat-servis.svg" alt="Kanat servis — közde ızgara çıtır tavuk kanat" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">300 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Kanat Servis</h3></div>
+        <p>Alevi sönmüş, külü tutmuş közün üstünde ağır ağır pişen kanat: dışı çıtır, içi yumuşacık.</p>
+      </div>
     </article>
-    <article class="menu-item" data-cat="kebap">
-      <div class="menu-item-top"><h3>Tavuk Şiş & Kanat</h3><span class="price">—</span></div>
-      <p>Közde ızgara tavuk şiş ve çıtır kanat.</p>
+    <article class="menu-item" data-cat="servis">
+      <figure class="menu-shot">
+        <img src="assets/yemek-kofte-servis.svg" alt="Köfte servis — el yapımı ızgara köfteler, lavaş yatağında" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">480 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Köfte Servis</h3></div>
+        <p>İyi yoğrulup dinlendirilen köfte harcı ocakbaşında ızgaraya geliyor; közün kokusu üstünde kalıyor.</p>
+      </div>
     </article>
-
-    <!-- Başlangıç -->
-    <article class="menu-item" data-cat="baslangic">
-      <div class="menu-item-top"><h3>Mevsim Salata</h3><span class="price">—</span></div>
-      <p>Günlük taze mevsim yeşillikleri.</p>
+    <article class="menu-item" data-cat="servis">
+      <figure class="menu-shot">
+        <img src="assets/yemek-adana-servis.svg" alt="Adana servis — zırhla çekilmiş acılı kıyma kebabı, lavaş yatağında" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">480 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Adana Servis</h3></div>
+        <p>Makine değil zırh işi: elde çekilen et, tuz ve acı pul biberle yoğrulup şişte közleniyor.</p>
+      </div>
     </article>
-    <article class="menu-item" data-cat="baslangic">
-      <div class="menu-item-top"><h3>Ezme & Acılı</h3><span class="price">—</span></div>
-      <p>El yapımı acılı ezme, ocakbaşı klasiği.</p>
-    </article>
-    <article class="menu-item" data-cat="baslangic">
-      <div class="menu-item-top"><h3>Çorba</h3><span class="price">—</span></div>
-      <p>Günün çorbası, sıcacık.</p>
-    </article>
-
-    <!-- İçecek -->
-    <article class="menu-item" data-cat="icecek">
-      <div class="menu-item-top"><h3>Ayran</h3><span class="price">—</span></div>
-      <p>Köpüklü, taze ayran.</p>
-    </article>
-    <article class="menu-item" data-cat="icecek">
-      <div class="menu-item-top"><h3>Şalgam</h3><span class="price">—</span></div>
-      <p>Acılı / acısız şalgam suyu.</p>
-    </article>
-    <article class="menu-item" data-cat="icecek">
-      <div class="menu-item-top"><h3>Soğuk İçecekler</h3><span class="price">—</span></div>
-      <p>Kola, gazoz, meyve suyu ve su.</p>
+    <article class="menu-item" data-cat="servis">
+      <figure class="menu-shot">
+        <img src="assets/yemek-kuzu-sis-servis.svg" alt="Kuzu şiş servis — marine kuzu kuşbaşı közde pişmiş, lavaş yatağında" loading="lazy" width="400" height="300" />
+        <span class="menu-price-tag">550 ₺</span>
+      </figure>
+      <div class="menu-body">
+        <div class="menu-item-top"><h3>Kuzu Şiş Servis</h3></div>
+        <p>Saatlerce marine edilip dinlendirilen kuzu kuşbaşı, közün eşsiz aromasıyla şişten sofraya.</p>
+      </div>
     </article>
   </div>
+
+  <div class="menu-foot reveal">
+    <a href="menu.html" class="btn btn-ghost">📱 Telefonda Aç · Sade Menü</a>
+  </div>
+
+  <p class="menu-illus-note">Görseller ürünleri tanıtmak için hazırlanmış çizimlerdir; sunum değişebilir.</p>
 </section>
 
-<!-- GALERİ -->
+<!-- ============================================================= -->
+<!-- GALERİ — GEÇİCİ OLARAK KAPALI (2 Ağu 2026)                    -->
+<!--                                                               -->
+<!-- Sebep: gerçek fotoğraflar henüz çekilmedi, 9 kutu da boş      -->
+<!-- gradyan görünüyordu. Fotoğraflar çekilip assets/ içine        -->
+<!-- atılınca AÇILACAK — yapılacak tek iş:                         -->
+<!--   1) Aşağıdaki <section> bloğunun yorum işaretlerini kaldır   -->
+<!--   2) Navbardaki "GALERİ LİNKİ" yorumunu da aç                 -->
+<!-- Beklenen dosyalar ve çekim rehberi: PROGRESS.md bölüm 4 / 4b  -->
+<!-- ============================================================= -->
+<!--
 <section class="section gallery" id="galeri">
   <div class="section-head reveal">
     <p class="kicker">Galeri</p>
     <h2>Ocağın Başından</h2>
-    <p class="section-note">Fotoğraflar yenileniyor — gerçek kareler yakında.</p>
   </div>
   <div class="gallery-grid">
     <figure class="g-item reveal" style="--i:0"><div class="g-ph g-doner"></div><figcaption>Közde Döner</figcaption></figure>
@@ -235,6 +340,7 @@
     <figure class="g-item reveal" style="--i:8"><div class="g-ph g-lavas"></div><figcaption>Lavaş & Garnitür</figcaption></figure>
   </div>
 </section>
+-->
 
 <!-- YORUMLAR -->
 <section class="section reviews" id="yorumlar">

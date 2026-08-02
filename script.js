@@ -80,10 +80,13 @@
       });
     });
   });
-  // Başlangıçta sadece döner göster
-  items.forEach(function (it) {
-    if (it.getAttribute("data-cat") !== "doner") it.classList.add("hide");
-  });
+  // Başlangıçta sadece ilk sekmenin kategorisi görünsün
+  var firstCat = tabs.length ? tabs[0].getAttribute("data-cat") : null;
+  if (firstCat) {
+    items.forEach(function (it) {
+      if (it.getAttribute("data-cat") !== firstCat) it.classList.add("hide");
+    });
+  }
 
   // Köz partikülleri üret
   var embers = document.querySelector(".embers");

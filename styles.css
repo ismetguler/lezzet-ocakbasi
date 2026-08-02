@@ -140,6 +140,74 @@ section{position:relative}
 .scroll-hint span{width:4px;height:8px;background:var(--ember-2);border-radius:2px;animation:scrolldot 1.6s infinite}
 @keyframes scrolldot{0%{opacity:0;transform:translateY(-4px)}50%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
 
+/* ===== KAMPANYA (sayfanın en üstündeki bölüm) ===== */
+.nav-hot{color:var(--ember-2)!important;font-weight:600}
+.nav-hot::before{content:"🔥";margin-right:5px;font-size:.9em}
+
+.promo{
+  padding:clamp(50px,7vw,80px) clamp(18px,6vw,80px);position:relative;z-index:2;
+  background:
+    radial-gradient(90% 120% at 15% 0%,rgba(255,87,34,.16),transparent 60%),
+    linear-gradient(180deg,var(--bg-2),var(--bg));
+  border-top:1px solid rgba(255,106,26,.18);
+  border-bottom:1px solid rgba(255,106,26,.18);
+}
+.promo-inner{
+  max-width:1050px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(24px,4vw,50px);align-items:center;
+  background:var(--panel);border:1px solid rgba(255,106,26,.28);
+  border-radius:calc(var(--radius) + 6px);padding:clamp(18px,3vw,30px);
+  box-shadow:var(--shadow),0 0 60px rgba(255,106,26,.1);
+}
+.promo-visual{border-radius:var(--radius);overflow:hidden;line-height:0;background:#0d0907}
+.promo-visual img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .6s}
+.promo-inner:hover .promo-visual img{transform:scale(1.04)}
+
+.promo-badge{
+  display:inline-block;background:linear-gradient(135deg,var(--ember),var(--ember-2));
+  color:#1a1108;font-weight:700;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;
+  padding:7px 16px;border-radius:100px;margin-bottom:16px;
+  box-shadow:0 8px 24px rgba(255,106,26,.35);animation:promoPulse 2.4s ease-in-out infinite;
+}
+@keyframes promoPulse{0%,100%{box-shadow:0 8px 24px rgba(255,106,26,.35)}50%{box-shadow:0 8px 34px rgba(255,106,26,.7)}}
+
+.promo-title{
+  font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4rem);line-height:.95;
+  letter-spacing:2px;margin-bottom:12px;
+}
+.promo-kg{
+  background:linear-gradient(135deg,var(--ember),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 18px rgba(255,106,26,.35));
+}
+.promo-lead{color:var(--muted);font-size:.98rem;margin-bottom:16px}
+
+.promo-extras{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.promo-extras li{
+  display:flex;align-items:center;gap:7px;font-size:.92rem;font-weight:500;
+  background:rgba(255,255,255,.05);border:1px solid var(--line);
+  padding:8px 16px;border-radius:100px;
+}
+.promo-extras span{font-size:1.1rem}
+
+.promo-price{display:flex;align-items:flex-start;gap:4px;margin-bottom:26px;line-height:1}
+.promo-price b{
+  font-family:var(--font-display);font-size:clamp(3.4rem,9vw,5.2rem);letter-spacing:2px;
+  background:linear-gradient(135deg,var(--gold),var(--ember-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.promo-price span{font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--ember-2);margin-top:6px}
+
+.promo-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.promo-note{color:var(--muted);font-size:.82rem;opacity:.85}
+
+@media(max-width:860px){
+  .promo-inner{grid-template-columns:1fr}
+  .promo-body{text-align:center}
+  .promo-extras,.promo-cta{justify-content:center}
+  .promo-price{justify-content:center}
+}
+
 /* ===== Bölüm ortak ===== */
 .section{padding:clamp(70px,10vw,130px) clamp(18px,6vw,80px);position:relative;z-index:2}
 .section-head{text-align:center;max-width:640px;margin:0 auto 60px}
@@ -176,19 +244,39 @@ section{position:relative}
 }
 .menu-tab:hover{color:var(--text);border-color:var(--ember)}
 .menu-tab.active{background:linear-gradient(135deg,var(--ember),var(--ember-2));color:#1a1108;border-color:transparent;box-shadow:0 8px 24px rgba(255,106,26,.3)}
-.menu-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.menu-grid{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .menu-item{
-  background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  background:var(--panel);border:1px solid var(--line);border-radius:16px;
   transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
 }
-.menu-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--ember),var(--gold));transform:scaleY(0);transform-origin:top;transition:transform .3s}
-.menu-item:hover{transform:translateY(-4px);border-color:rgba(255,106,26,.35);box-shadow:var(--shadow)}
+.menu-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--ember),var(--gold));transform:scaleY(0);transform-origin:top;transition:transform .3s;z-index:3}
+.menu-item:hover{transform:translateY(-5px);border-color:rgba(255,106,26,.35);box-shadow:var(--shadow)}
 .menu-item:hover::before{transform:scaleY(1)}
 .menu-item.hide{display:none}
+
+/* yemek görseli (elle çizilmiş SVG) */
+.menu-shot{position:relative;margin:0;aspect-ratio:4/3;overflow:hidden;background:#1a1512}
+.menu-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.menu-item:hover .menu-shot img{transform:scale(1.06)}
+.menu-shot::after{content:"";position:absolute;inset:auto 0 0 0;height:52%;background:linear-gradient(to top,var(--panel),transparent);pointer-events:none}
+.menu-shot .menu-price-tag{
+  position:absolute;right:12px;bottom:12px;z-index:2;
+  font-family:var(--font-display);font-size:1.35rem;letter-spacing:1px;color:#1a1108;
+  background:linear-gradient(135deg,var(--gold),var(--ember-2));
+  padding:5px 14px 3px;border-radius:100px;box-shadow:0 6px 18px rgba(0,0,0,.45);white-space:nowrap;
+}
+
+.menu-body{padding:16px 22px 22px}
 .menu-item-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
-.menu-item h3{font-size:1.15rem;font-weight:600}
-.menu-item p{color:var(--muted);font-size:.9rem;line-height:1.5}
+.menu-item h3{font-size:1.12rem;font-weight:600;line-height:1.3}
+.menu-item p{color:var(--muted);font-size:.88rem;line-height:1.55}
 .price{font-family:var(--font-display);font-size:1.4rem;color:var(--gold);letter-spacing:1px;white-space:nowrap}
+
+.menu-foot{display:flex;justify-content:center;margin-top:38px}
+.menu-illus-note{max-width:1150px;margin:20px auto 0;text-align:center;color:var(--muted);font-size:.8rem;opacity:.7}
+
+@media(max-width:980px){.menu-grid{grid-template-columns:1fr 1fr}}
 
 /* ===== GALERİ ===== */
 .gallery{background:linear-gradient(180deg,var(--bg),var(--bg-2))}

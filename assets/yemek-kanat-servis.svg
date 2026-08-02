@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Kanat servis — közde ızgara çıtır tavuk kanat, lavaş yatağında közlenmiş biber ve sumaklı soğanla">
+<defs>
+  <radialGradient id="knBg" cx="50%" cy="38%" r="75%">
+    <stop offset="0" stop-color="#3b2517"/><stop offset=".55" stop-color="#241a13"/><stop offset="1" stop-color="#13100d"/>
+  </radialGradient>
+  <radialGradient id="knGlow" cx="50%" cy="46%" r="52%">
+    <stop offset="0" stop-color="#ff7d1e" stop-opacity=".3"/><stop offset="1" stop-color="#ff7d1e" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="knLav" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f7e8c1"/><stop offset=".6" stop-color="#e2c692"/><stop offset="1" stop-color="#b28f5b"/>
+  </linearGradient>
+  <linearGradient id="knSkin" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e7a751"/><stop offset=".45" stop-color="#c1762c"/><stop offset="1" stop-color="#7d4413"/>
+  </linearGradient>
+  <linearGradient id="knPep" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#8cbb45"/><stop offset="1" stop-color="#3c6520"/>
+  </linearGradient>
+  <linearGradient id="knTom" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e0512c"/><stop offset="1" stop-color="#8d1e10"/>
+  </linearGradient>
+  <filter id="knSoft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.5"/></filter>
+  <filter id="knBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.3"/></filter>
+</defs>
+
+<rect width="400" height="300" fill="url(#knBg)"/>
+<ellipse cx="200" cy="150" rx="190" ry="140" fill="url(#knGlow)"/>
+<ellipse cx="200" cy="256" rx="156" ry="30" fill="#0b0806" opacity=".8" filter="url(#knSoft)"/>
+
+<ellipse cx="200" cy="200" rx="154" ry="66" fill="#1a1715"/>
+<ellipse cx="200" cy="196" rx="154" ry="66" fill="#312c28"/>
+<ellipse cx="200" cy="194" rx="136" ry="55" fill="#26221e"/>
+<path d="M64 190 a136 55 0 0 1 272 0" fill="none" stroke="#5c554e" stroke-width="1.6" opacity=".5"/>
+
+<ellipse cx="200" cy="202" rx="124" ry="44" fill="#b28f5b"/>
+<ellipse cx="200" cy="197" rx="124" ry="44" fill="url(#knLav)"/>
+<path d="M96 192 q52 20 104 2 M104 207 q50 16 96 0" stroke="#c7a670" stroke-width="1.8" fill="none" opacity=".6"/>
+
+<!-- KANATLAR -->
+<g id="kn-wings">
+  <!-- arka sıra -->
+  <g transform="rotate(-14 150 172)">
+    <path d="M120 170 q8 -18 28 -16 q20 2 24 16 q3 12 -12 15 q-18 4 -32 -2 q-11 -5 -8 -13 z" fill="url(#knSkin)"/>
+    <path d="M146 182 q10 6 20 4 q8 -2 6 -8" stroke="#e9c78f" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M126 166 q20 -8 40 -2 M124 176 q22 7 44 0" stroke="#3d1c06" stroke-width="3" fill="none" opacity=".55" stroke-linecap="round"/>
+    <ellipse cx="136" cy="161" rx="14" ry="4" fill="#ffce87" opacity=".5" filter="url(#knBlur)"/>
+  </g>
+  <g transform="rotate(10 246 168)">
+    <path d="M216 166 q8 -18 28 -16 q20 2 24 16 q3 12 -12 15 q-18 4 -32 -2 q-11 -5 -8 -13 z" fill="url(#knSkin)"/>
+    <path d="M242 178 q10 6 20 4 q8 -2 6 -8" stroke="#e9c78f" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M222 162 q20 -8 40 -2 M220 172 q22 7 44 0" stroke="#3d1c06" stroke-width="3" fill="none" opacity=".55" stroke-linecap="round"/>
+    <ellipse cx="232" cy="157" rx="14" ry="4" fill="#ffce87" opacity=".5" filter="url(#knBlur)"/>
+  </g>
+  <!-- ön sıra -->
+  <g transform="rotate(-6 128 202)">
+    <path d="M100 200 q8 -18 28 -16 q20 2 24 16 q3 12 -12 15 q-18 4 -32 -2 q-11 -5 -8 -13 z" fill="url(#knSkin)"/>
+    <path d="M126 212 q10 6 20 4 q8 -2 6 -8" stroke="#e9c78f" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M106 196 q20 -8 40 -2 M104 206 q22 7 44 0" stroke="#3d1c06" stroke-width="3" fill="none" opacity=".55" stroke-linecap="round"/>
+    <ellipse cx="116" cy="191" rx="14" ry="4" fill="#ffce87" opacity=".5" filter="url(#knBlur)"/>
+  </g>
+  <g transform="rotate(6 190 208)">
+    <path d="M162 206 q8 -18 28 -16 q20 2 24 16 q3 12 -12 15 q-18 4 -32 -2 q-11 -5 -8 -13 z" fill="url(#knSkin)"/>
+    <path d="M188 218 q10 6 20 4 q8 -2 6 -8" stroke="#e9c78f" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M168 202 q20 -8 40 -2 M166 212 q22 7 44 0" stroke="#3d1c06" stroke-width="3" fill="none" opacity=".55" stroke-linecap="round"/>
+    <ellipse cx="178" cy="197" rx="14" ry="4" fill="#ffce87" opacity=".5" filter="url(#knBlur)"/>
+  </g>
+  <g transform="rotate(-10 252 204)">
+    <path d="M224 202 q8 -18 28 -16 q20 2 24 16 q3 12 -12 15 q-18 4 -32 -2 q-11 -5 -8 -13 z" fill="url(#knSkin)"/>
+    <path d="M250 214 q10 6 20 4 q8 -2 6 -8" stroke="#e9c78f" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M230 198 q20 -8 40 -2 M228 208 q22 7 44 0" stroke="#3d1c06" stroke-width="3" fill="none" opacity=".55" stroke-linecap="round"/>
+    <ellipse cx="240" cy="193" rx="14" ry="4" fill="#ffce87" opacity=".5" filter="url(#knBlur)"/>
+  </g>
+</g>
+
+<!-- közlenmiş biber & domates -->
+<g transform="rotate(-14 306 200)">
+  <path d="M278 204 q9 -20 28 -19 q20 1 28 15 q6 11 -6 15 q-15 5 -32 2 q-17 -3 -18 -13 z" fill="url(#knPep)"/>
+  <path d="M286 196 q15 -8 34 -2" stroke="#c9e07a" stroke-width="2.4" fill="none" opacity=".55" stroke-linecap="round"/>
+  <path d="M290 207 q17 6 36 1" stroke="#20340f" stroke-width="3" fill="none" opacity=".6" stroke-linecap="round"/>
+</g>
+<g transform="translate(300 232)">
+  <circle r="19" fill="url(#knTom)"/>
+  <path d="M-16 -4 q16 10 32 -2" stroke="#5c1108" stroke-width="3.2" fill="none" opacity=".5" stroke-linecap="round"/>
+  <ellipse cx="-6" cy="-9" rx="6" ry="4" fill="#ff9d72" opacity=".5" filter="url(#knBlur)"/>
+</g>
+<!-- sumaklı soğan -->
+<g>
+  <path d="M92 172 q22 -9 42 -3" stroke="#f3e6d6" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+  <path d="M96 180 q22 -9 44 -2" stroke="#ece0cf" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="110" cy="175" r="1.7" fill="#a32b17"/><circle cx="126" cy="181" r="1.5" fill="#a32b17"/>
+</g>
+
+<g fill="none" stroke="#ffd9a8" stroke-linecap="round" opacity=".15">
+  <path d="M170 128 q-10 -18 3 -30 q11 -12 2 -26" stroke-width="3.4"/>
+  <path d="M218 122 q11 -15 0 -28 q-10 -12 2 -24" stroke-width="3"/>
+</g>
+</svg>

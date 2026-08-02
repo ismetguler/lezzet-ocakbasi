@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Közde tavuk döner dürüm — ince lavaşa sarılmış, kesit yüzeyinde döner dilimleri görünüyor">
+<defs>
+  <radialGradient id="tdBg" cx="50%" cy="40%" r="75%">
+    <stop offset="0" stop-color="#3b2517"/><stop offset=".55" stop-color="#241a13"/><stop offset="1" stop-color="#13100d"/>
+  </radialGradient>
+  <radialGradient id="tdGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ff7d1e" stop-opacity=".34"/><stop offset="1" stop-color="#ff7d1e" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="tdLav" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#9d7440"/><stop offset=".16" stop-color="#e3c692"/><stop offset=".42" stop-color="#f7e8c1"/>
+    <stop offset=".70" stop-color="#dcbb82"/><stop offset="1" stop-color="#8d6739"/>
+  </linearGradient>
+  <linearGradient id="tdFoil" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#6f7378"/><stop offset=".2" stop-color="#c8ced4"/><stop offset=".38" stop-color="#8d9399"/>
+    <stop offset=".58" stop-color="#e3e8ec"/><stop offset=".78" stop-color="#909599"/><stop offset="1" stop-color="#5f6367"/>
+  </linearGradient>
+  <radialGradient id="tdFace" cx="42%" cy="34%" r="72%">
+    <stop offset="0" stop-color="#7a4c22"/><stop offset="1" stop-color="#3d2612"/>
+  </radialGradient>
+  <linearGradient id="tdMeat" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f0c069"/><stop offset=".5" stop-color="#d9a044"/><stop offset="1" stop-color="#a06f27"/>
+  </linearGradient>
+  <linearGradient id="tdTom" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e0512c"/><stop offset="1" stop-color="#8d1e10"/>
+  </linearGradient>
+  <linearGradient id="tdPep" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#8cbb45"/><stop offset="1" stop-color="#3c6520"/>
+  </linearGradient>
+  <filter id="tdSoft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
+  <filter id="tdBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.2"/></filter>
+</defs>
+
+<rect width="400" height="300" fill="url(#tdBg)"/>
+<ellipse cx="200" cy="160" rx="190" ry="140" fill="url(#tdGlow)"/>
+
+<!-- tezgah + gölge -->
+<ellipse cx="200" cy="284" rx="150" ry="17" fill="#0d0a08" opacity=".75" filter="url(#tdSoft)"/>
+<ellipse cx="200" cy="279" rx="96" ry="12" fill="#000" opacity=".55" filter="url(#tdSoft)"/>
+
+<!-- közlenmiş biber -->
+<g transform="rotate(-12 96 258)">
+  <path d="M62 262 q10 -22 30 -21 q22 1 30 16 q6 12 -6 16 q-16 5 -34 2 q-18 -3 -20 -13 z" fill="url(#tdPep)"/>
+  <path d="M70 254 q16 -9 38 -2" stroke="#c9e07a" stroke-width="2.4" fill="none" opacity=".55" stroke-linecap="round"/>
+  <path d="M76 265 q18 6 38 1" stroke="#20340f" stroke-width="3" fill="none" opacity=".6" stroke-linecap="round"/>
+  <path d="M92 241 q3 -10 9 -13" stroke="#4e7a26" stroke-width="4" fill="none" stroke-linecap="round"/>
+</g>
+
+<!-- közlenmiş domates -->
+<g transform="translate(310 250)">
+  <circle r="25" fill="url(#tdTom)"/>
+  <path d="M-22 -6 q22 12 44 -2" stroke="#5c1108" stroke-width="4" fill="none" opacity=".5" stroke-linecap="round"/>
+  <path d="M-18 8 q20 10 38 -3" stroke="#5c1108" stroke-width="3" fill="none" opacity=".45" stroke-linecap="round"/>
+  <ellipse cx="-8" cy="-12" rx="8" ry="5" fill="#ff9d72" opacity=".5" filter="url(#tdBlur)"/>
+  <path d="M-4 -24 q4 -7 10 -8 q-2 7 -6 9 z" fill="#3f6b1e"/>
+</g>
+
+<!-- sumaklı soğan -->
+<g opacity=".95">
+  <path d="M120 276 q16 -7 34 -3" stroke="#f3e6d6" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M126 269 q18 -8 38 -2" stroke="#ece0cf" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M134 282 q16 -6 32 -2" stroke="#f6ece0" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="140" cy="272" r="1.6" fill="#a32b17"/><circle cx="152" cy="278" r="1.4" fill="#a32b17"/>
+  <circle cx="160" cy="270" r="1.3" fill="#a32b17"/>
+</g>
+
+<!-- DÜRÜM -->
+<g transform="rotate(-6 200 180)">
+  <!-- gövde -->
+  <path d="M157 84 L157 276 q0 14 14 14 L229 290 q14 0 14 -14 L243 84 Z" fill="url(#tdLav)"/>
+  <!-- sarım kıvrımları -->
+  <path d="M162 110 q38 16 76 2" stroke="#b78f57" stroke-width="1.6" fill="none" opacity=".5"/>
+  <path d="M160 150 q40 18 82 0" stroke="#b78f57" stroke-width="1.6" fill="none" opacity=".42"/>
+  <path d="M186 92 L182 274" stroke="#c9a36c" stroke-width="2" fill="none" opacity=".45"/>
+  <path d="M222 92 L226 274" stroke="#8f6c3c" stroke-width="2.4" fill="none" opacity=".4"/>
+  <!-- lavaşta közlenme lekeleri -->
+  <ellipse cx="176" cy="132" rx="9" ry="5" fill="#8d6534" opacity=".35" filter="url(#tdBlur)"/>
+  <ellipse cx="215" cy="176" rx="11" ry="6" fill="#8d6534" opacity=".3" filter="url(#tdBlur)"/>
+  <ellipse cx="192" cy="212" rx="8" ry="4" fill="#8d6534" opacity=".28" filter="url(#tdBlur)"/>
+
+  <!-- alüminyum folyo -->
+  <path d="M155 196 q22 10 44 4 q26 -8 46 3 L245 276 q0 14 -14 14 L171 290 q-14 0 -14 -14 Z" fill="url(#tdFoil)"/>
+  <path d="M168 206 L164 288 M188 210 L186 290 M210 206 L214 290 M230 202 L234 286"
+        stroke="#5c6165" stroke-width="1.3" opacity=".55" fill="none"/>
+  <path d="M176 204 L174 288 M200 212 L202 290 M222 204 L226 288"
+        stroke="#f2f6f8" stroke-width="1" opacity=".5" fill="none"/>
+  <path d="M155 196 q22 10 44 4 q26 -8 46 3" stroke="#eef2f5" stroke-width="2" fill="none" opacity=".7"/>
+
+  <!-- kesit yüzeyi -->
+  <ellipse cx="200" cy="84" rx="43" ry="13.5" fill="url(#tdLav)"/>
+  <ellipse cx="200" cy="85" rx="35" ry="10" fill="url(#tdFace)"/>
+  <!-- döner dilimleri -->
+  <g>
+    <path d="M172 86 q10 -6 22 -3 q-8 6 -22 5 z" fill="url(#tdMeat)"/>
+    <path d="M180 80 q14 -5 26 0 q-12 5 -26 2 z" fill="#e8b455"/>
+    <path d="M196 88 q14 -6 26 -1 q-12 6 -26 3 z" fill="url(#tdMeat)"/>
+    <path d="M206 80 q12 -4 20 1 q-9 4 -20 1 z" fill="#f2c877"/>
+    <path d="M186 90 q12 -4 20 0 q-10 4 -20 1 z" fill="#c48b33"/>
+    <path d="M176 78 q9 -4 17 -1" stroke="#6b3f12" stroke-width="1.4" fill="none" opacity=".8"/>
+    <path d="M204 86 q9 -3 16 0" stroke="#6b3f12" stroke-width="1.4" fill="none" opacity=".7"/>
+  </g>
+  <!-- taşan garnitür -->
+  <path d="M168 82 q10 -10 20 -8 q-6 9 -20 11 z" fill="#e9edd8" opacity=".9"/>
+  <path d="M214 78 q10 -8 20 -5 q-8 8 -20 8 z" fill="#f2f5e2" opacity=".85"/>
+  <path d="M190 74 q6 -9 14 -9 q-2 8 -10 12 z" fill="#4f8f2e"/>
+  <path d="M204 72 q7 -7 13 -6 q-4 7 -12 9 z" fill="#63a83a"/>
+  <circle cx="186" cy="76" r="3" fill="#d94a2b"/>
+  <ellipse cx="200" cy="84" rx="43" ry="13.5" fill="none" stroke="#c6a26b" stroke-width="1.6" opacity=".8"/>
+</g>
+
+<!-- buhar -->
+<g fill="none" stroke="#ffd9a8" stroke-linecap="round" opacity=".16">
+  <path d="M182 56 q-9 -16 3 -28 q10 -11 2 -24" stroke-width="3.4"/>
+  <path d="M212 50 q10 -14 0 -26 q-9 -11 1 -22" stroke-width="3"/>
+</g>
+</svg>

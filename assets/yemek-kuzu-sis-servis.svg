@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Kuzu şiş servis — marine kuzu kuşbaşı közde pişmiş, lavaş yatağında közlenmiş domates biber ve sumaklı soğanla">
+<defs>
+  <radialGradient id="kzBg" cx="50%" cy="38%" r="75%">
+    <stop offset="0" stop-color="#3b2517"/><stop offset=".55" stop-color="#241a13"/><stop offset="1" stop-color="#13100d"/>
+  </radialGradient>
+  <radialGradient id="kzGlow" cx="50%" cy="46%" r="52%">
+    <stop offset="0" stop-color="#ff7d1e" stop-opacity=".3"/><stop offset="1" stop-color="#ff7d1e" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="kzLav" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f7e8c1"/><stop offset=".6" stop-color="#e2c692"/><stop offset="1" stop-color="#b28f5b"/>
+  </linearGradient>
+  <linearGradient id="kzCube" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#c87342"/><stop offset=".45" stop-color="#8e3f20"/><stop offset="1" stop-color="#4a1d0c"/>
+  </linearGradient>
+  <linearGradient id="kzPep" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#8cbb45"/><stop offset="1" stop-color="#3c6520"/>
+  </linearGradient>
+  <linearGradient id="kzTom" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e0512c"/><stop offset="1" stop-color="#8d1e10"/>
+  </linearGradient>
+  <filter id="kzSoft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.5"/></filter>
+  <filter id="kzBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.3"/></filter>
+</defs>
+
+<rect width="400" height="300" fill="url(#kzBg)"/>
+<ellipse cx="200" cy="150" rx="190" ry="140" fill="url(#kzGlow)"/>
+<ellipse cx="200" cy="256" rx="156" ry="30" fill="#0b0806" opacity=".8" filter="url(#kzSoft)"/>
+
+<ellipse cx="200" cy="200" rx="154" ry="66" fill="#1a1715"/>
+<ellipse cx="200" cy="196" rx="154" ry="66" fill="#312c28"/>
+<ellipse cx="200" cy="194" rx="136" ry="55" fill="#26221e"/>
+<path d="M64 190 a136 55 0 0 1 272 0" fill="none" stroke="#5c554e" stroke-width="1.6" opacity=".5"/>
+
+<ellipse cx="200" cy="202" rx="124" ry="44" fill="#b28f5b"/>
+<ellipse cx="200" cy="197" rx="124" ry="44" fill="url(#kzLav)"/>
+<path d="M96 192 q52 20 104 2 M104 207 q50 16 96 0" stroke="#c7a670" stroke-width="1.8" fill="none" opacity=".6"/>
+<ellipse cx="150" cy="186" rx="18" ry="7" fill="#a87f47" opacity=".35" filter="url(#kzBlur)"/>
+
+<!-- sumaklı soğan -->
+<g>
+  <path d="M92 170 q24 -9 46 -3" stroke="#f3e6d6" stroke-width="3.8" fill="none" stroke-linecap="round"/>
+  <path d="M96 179 q24 -9 46 -2" stroke="#ece0cf" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <circle cx="110" cy="173" r="1.7" fill="#a32b17"/><circle cx="128" cy="180" r="1.5" fill="#a32b17"/>
+</g>
+
+<!-- üst şiş -->
+<g transform="rotate(-6 200 174)">
+  <rect x="76" y="180" width="252" height="4.5" rx="2" fill="#8f979d"/>
+  <rect x="76" y="180" width="252" height="1.8" rx="1" fill="#e6edf1" opacity=".85"/>
+  <rect x="112" y="158" width="35" height="35" rx="9" fill="url(#kzCube)"/>
+  <rect x="153" y="161" width="34" height="34" rx="9" fill="url(#kzCube)"/>
+  <rect x="193" y="157" width="35" height="35" rx="9" fill="url(#kzCube)"/>
+  <rect x="234" y="161" width="34" height="34" rx="9" fill="url(#kzCube)"/>
+  <rect x="274" y="158" width="34" height="35" rx="9" fill="url(#kzCube)"/>
+  <path d="M117 169 h25 M117 182 h25 M158 172 h24 M158 185 h24 M198 168 h25 M198 181 h25 M239 172 h24 M239 185 h24 M279 169 h24 M279 182 h24"
+        stroke="#2c1105" stroke-width="3.2" opacity=".55" stroke-linecap="round"/>
+  <path d="M117 163 q12 -4 23 0 M158 166 q11 -4 22 0 M198 162 q12 -4 23 0 M239 166 q11 -4 22 0 M279 163 q11 -4 22 0"
+        stroke="#f2b789" stroke-width="2.4" fill="none" opacity=".5" stroke-linecap="round"/>
+  <path d="M124 159 q10 -5 18 -1 M205 158 q10 -5 18 -1" stroke="#f9e6cd" stroke-width="3.4" fill="none" opacity=".6" stroke-linecap="round"/>
+</g>
+
+<!-- alt şiş -->
+<g transform="rotate(4 200 218)">
+  <rect x="92" y="224" width="220" height="4.5" rx="2" fill="#8f979d"/>
+  <rect x="92" y="224" width="220" height="1.8" rx="1" fill="#e6edf1" opacity=".85"/>
+  <rect x="124" y="203" width="33" height="33" rx="9" fill="url(#kzCube)"/>
+  <rect x="163" y="206" width="32" height="32" rx="9" fill="url(#kzCube)"/>
+  <rect x="201" y="202" width="33" height="33" rx="9" fill="url(#kzCube)"/>
+  <rect x="240" y="206" width="32" height="32" rx="9" fill="url(#kzCube)"/>
+  <path d="M129 213 h23 M129 226 h23 M168 216 h22 M168 229 h22 M206 212 h23 M206 225 h23 M245 216 h22 M245 229 h22"
+        stroke="#2c1105" stroke-width="3" opacity=".55" stroke-linecap="round"/>
+  <path d="M129 208 q11 -4 21 0 M168 211 q10 -4 20 0 M206 207 q11 -4 21 0 M245 211 q10 -4 20 0"
+        stroke="#f2b789" stroke-width="2.2" fill="none" opacity=".5" stroke-linecap="round"/>
+</g>
+
+<!-- közlenmiş biber & domates -->
+<g transform="rotate(-14 306 182)">
+  <path d="M278 186 q9 -20 28 -19 q20 1 28 15 q6 11 -6 15 q-15 5 -32 2 q-17 -3 -18 -13 z" fill="url(#kzPep)"/>
+  <path d="M286 178 q15 -8 34 -2" stroke="#c9e07a" stroke-width="2.4" fill="none" opacity=".55" stroke-linecap="round"/>
+  <path d="M290 189 q17 6 36 1" stroke="#20340f" stroke-width="3" fill="none" opacity=".6" stroke-linecap="round"/>
+</g>
+<g transform="translate(312 244)">
+  <circle r="18" fill="url(#kzTom)"/>
+  <path d="M-15 -4 q15 10 30 -2" stroke="#5c1108" stroke-width="3" fill="none" opacity=".5" stroke-linecap="round"/>
+  <ellipse cx="-6" cy="-8" rx="6" ry="4" fill="#ff9d72" opacity=".5" filter="url(#kzBlur)"/>
+</g>
+<g fill="#4f8f2e">
+  <path d="M100 236 q8 -12 18 -12 q-3 12 -14 16 z"/>
+  <path d="M116 242 q9 -10 18 -9 q-4 11 -16 14 z" fill="#63a83a"/>
+</g>
+
+<g fill="none" stroke="#ffd9a8" stroke-linecap="round" opacity=".15">
+  <path d="M164 122 q-10 -18 3 -30 q11 -12 2 -26" stroke-width="3.4"/>
+  <path d="M218 116 q11 -15 0 -28 q-10 -12 2 -24" stroke-width="3"/>
+</g>
+</svg>

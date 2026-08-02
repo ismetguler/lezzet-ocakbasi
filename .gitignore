@@ -1,0 +1,5 @@
+# Başında _ olan dosyalar çalışma dosyasıdır — siteye konmaz, repoya girmez.
+# (ham çekimler, dükkandaki A4 fiyat listesi fotoğrafı vb.)
+# assets/ klasörü internete AÇIK servis edilir — bkz. PROGRESS.md bölüm 4.
+assets/_*
+_*

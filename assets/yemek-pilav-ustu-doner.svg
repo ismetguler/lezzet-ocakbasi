@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Pilav üstü tavuk döner — tereyağlı pirinç pilavının üzerinde közde tavuk döner, yanında turşu ve domates">
+<defs>
+  <radialGradient id="puBg" cx="50%" cy="38%" r="75%">
+    <stop offset="0" stop-color="#3b2517"/><stop offset=".55" stop-color="#241a13"/><stop offset="1" stop-color="#13100d"/>
+  </radialGradient>
+  <radialGradient id="puGlow" cx="50%" cy="46%" r="52%">
+    <stop offset="0" stop-color="#ff7d1e" stop-opacity=".3"/><stop offset="1" stop-color="#ff7d1e" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="puPlate" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#3a3531"/><stop offset=".5" stop-color="#26221f"/><stop offset="1" stop-color="#171412"/>
+  </linearGradient>
+  <radialGradient id="puRice" cx="42%" cy="30%" r="70%">
+    <stop offset="0" stop-color="#fdf6e4"/><stop offset=".6" stop-color="#f0e2c2"/><stop offset="1" stop-color="#cbb488"/>
+  </radialGradient>
+  <linearGradient id="puMeat" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f0c069"/><stop offset=".5" stop-color="#d29b41"/><stop offset="1" stop-color="#95651f"/>
+  </linearGradient>
+  <linearGradient id="puTom" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e0512c"/><stop offset="1" stop-color="#8d1e10"/>
+  </linearGradient>
+  <filter id="puSoft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.5"/></filter>
+  <filter id="puBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.3"/></filter>
+</defs>
+
+<rect width="400" height="300" fill="url(#puBg)"/>
+<ellipse cx="200" cy="150" rx="190" ry="140" fill="url(#puGlow)"/>
+<ellipse cx="200" cy="256" rx="156" ry="30" fill="#0b0806" opacity=".8" filter="url(#puSoft)"/>
+
+<!-- tabak -->
+<ellipse cx="200" cy="200" rx="154" ry="66" fill="url(#puPlate)"/>
+<ellipse cx="200" cy="196" rx="154" ry="66" fill="#312c28"/>
+<ellipse cx="200" cy="197" rx="136" ry="55" fill="#1e1a17"/>
+<ellipse cx="200" cy="194" rx="136" ry="55" fill="#26221e"/>
+<path d="M64 190 a136 55 0 0 1 272 0" fill="none" stroke="#5c554e" stroke-width="1.6" opacity=".5"/>
+<ellipse cx="200" cy="193" rx="120" ry="46" fill="#181513" opacity=".7"/>
+
+<!-- pilav yığını -->
+<g>
+  <ellipse cx="186" cy="196" rx="86" ry="34" fill="#c8b184"/>
+  <ellipse cx="186" cy="190" rx="86" ry="34" fill="#f2e4c4"/>
+  <ellipse cx="180" cy="182" rx="70" ry="26" fill="#fdf6e4"/>
+  <g stroke="#cdb98f" stroke-width="1.5" stroke-linecap="round" opacity=".85" fill="none">
+    <path d="M136 190 l14 -4"/><path d="M152 198 l15 -3"/><path d="M170 186 l14 -5"/><path d="M190 194 l15 -4"/>
+    <path d="M208 184 l14 -5"/><path d="M226 192 l14 -4"/><path d="M148 178 l13 -5"/><path d="M196 176 l14 -4"/>
+    <path d="M164 204 l14 -4"/><path d="M214 202 l14 -4"/><path d="M120 198 l13 -4"/>
+  </g>
+  <!-- tereyağı parlaklığı -->
+  <ellipse cx="168" cy="178" rx="30" ry="9" fill="#ffe9b0" opacity=".45" filter="url(#puBlur)"/>
+</g>
+
+<!-- döner dilimleri (pilavın üstünde) -->
+<g>
+  <path d="M140 176 q22 -12 46 -6 q-18 12 -46 10 z" fill="url(#puMeat)"/>
+  <path d="M154 164 q26 -12 52 -4 q-22 12 -52 8 z" fill="#e8b455"/>
+  <path d="M176 172 q26 -12 50 -4 q-22 12 -50 8 z" fill="url(#puMeat)"/>
+  <path d="M164 156 q24 -10 46 -3 q-20 10 -46 6 z" fill="#f4cd7d"/>
+  <path d="M196 162 q22 -9 42 -2 q-18 10 -42 6 z" fill="#d9a244"/>
+  <path d="M148 168 q24 -10 44 -4" stroke="#7a4a14" stroke-width="1.8" fill="none" opacity=".7"/>
+  <path d="M178 160 q22 -8 40 -2" stroke="#7a4a14" stroke-width="1.8" fill="none" opacity=".6"/>
+  <path d="M186 176 q20 -8 38 -3" stroke="#7a4a14" stroke-width="1.6" fill="none" opacity=".55"/>
+  <ellipse cx="182" cy="158" rx="26" ry="6" fill="#ffdf9a" opacity=".4" filter="url(#puBlur)"/>
+</g>
+
+<!-- közlenmiş domates -->
+<g transform="translate(288 172)">
+  <ellipse cx="0" cy="26" rx="26" ry="8" fill="#000" opacity=".45" filter="url(#puBlur)"/>
+  <circle r="24" fill="url(#puTom)"/>
+  <path d="M-21 -5 q21 12 42 -2" stroke="#5c1108" stroke-width="3.6" fill="none" opacity=".5" stroke-linecap="round"/>
+  <path d="M-17 8 q19 10 36 -3" stroke="#5c1108" stroke-width="3" fill="none" opacity=".45" stroke-linecap="round"/>
+  <ellipse cx="-8" cy="-12" rx="8" ry="5" fill="#ff9d72" opacity=".5" filter="url(#puBlur)"/>
+  <path d="M-4 -23 q4 -7 10 -8 q-2 7 -6 9 z" fill="#3f6b1e"/>
+</g>
+
+<!-- turşu (kornişon) -->
+<g transform="rotate(-18 296 220)">
+  <ellipse cx="296" cy="220" rx="24" ry="8" fill="#6f8f2e"/>
+  <ellipse cx="296" cy="218" rx="24" ry="8" fill="#8fae43"/>
+  <path d="M276 216 q20 -6 40 0" stroke="#c6da88" stroke-width="2" fill="none" opacity=".6"/>
+  <g fill="#5d7a24" opacity=".6"><circle cx="284" cy="220" r="1.4"/><circle cx="296" cy="222" r="1.3"/><circle cx="308" cy="219" r="1.2"/></g>
+</g>
+
+<!-- maydanoz -->
+<g fill="#4f8f2e">
+  <path d="M108 218 q8 -12 18 -12 q-3 12 -14 16 z"/>
+  <path d="M124 224 q9 -10 18 -9 q-4 11 -16 14 z" fill="#63a83a"/>
+</g>
+
+<g fill="none" stroke="#ffd9a8" stroke-linecap="round" opacity=".15">
+  <path d="M170 128 q-10 -18 3 -30 q11 -12 2 -26" stroke-width="3.4"/>
+  <path d="M212 120 q11 -15 0 -28 q-10 -12 2 -24" stroke-width="3"/>
+</g>
+</svg>

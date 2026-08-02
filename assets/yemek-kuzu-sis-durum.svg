@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Kuzu şiş dürüm — marine kuzu kuşbaşı közde pişip sıcak lavaşa sarılmış">
+<defs>
+  <radialGradient id="ksBg" cx="50%" cy="40%" r="75%">
+    <stop offset="0" stop-color="#3b2517"/><stop offset=".55" stop-color="#241a13"/><stop offset="1" stop-color="#13100d"/>
+  </radialGradient>
+  <radialGradient id="ksGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ff7d1e" stop-opacity=".34"/><stop offset="1" stop-color="#ff7d1e" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ksLav" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#9d7440"/><stop offset=".16" stop-color="#e3c692"/><stop offset=".42" stop-color="#f7e8c1"/>
+    <stop offset=".70" stop-color="#dcbb82"/><stop offset="1" stop-color="#8d6739"/>
+  </linearGradient>
+  <linearGradient id="ksFoil" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#6f7378"/><stop offset=".2" stop-color="#c8ced4"/><stop offset=".38" stop-color="#8d9399"/>
+    <stop offset=".58" stop-color="#e3e8ec"/><stop offset=".78" stop-color="#909599"/><stop offset="1" stop-color="#5f6367"/>
+  </linearGradient>
+  <radialGradient id="ksFace" cx="42%" cy="34%" r="72%">
+    <stop offset="0" stop-color="#67381b"/><stop offset="1" stop-color="#30190c"/>
+  </radialGradient>
+  <linearGradient id="ksCube" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#c06a3c"/><stop offset=".45" stop-color="#8e3f20"/><stop offset="1" stop-color="#4d1f0d"/>
+  </linearGradient>
+  <linearGradient id="ksPep" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#8cbb45"/><stop offset="1" stop-color="#3c6520"/>
+  </linearGradient>
+  <linearGradient id="ksTom" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e0512c"/><stop offset="1" stop-color="#8d1e10"/>
+  </linearGradient>
+  <filter id="ksSoft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
+  <filter id="ksBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.2"/></filter>
+</defs>
+
+<rect width="400" height="300" fill="url(#ksBg)"/>
+<ellipse cx="200" cy="160" rx="190" ry="140" fill="url(#ksGlow)"/>
+<ellipse cx="200" cy="284" rx="150" ry="17" fill="#0d0a08" opacity=".75" filter="url(#ksSoft)"/>
+<ellipse cx="200" cy="279" rx="96" ry="12" fill="#000" opacity=".55" filter="url(#ksSoft)"/>
+
+<!-- yanda kuzu şiş -->
+<g transform="rotate(-8 302 250)">
+  <rect x="250" y="250" width="116" height="4" rx="2" fill="#9aa2a8"/>
+  <rect x="250" y="250" width="116" height="1.6" rx="1" fill="#e6edf1" opacity=".8"/>
+  <rect x="264" y="235" width="27" height="27" rx="7" fill="url(#ksCube)"/>
+  <rect x="297" y="237" width="26" height="26" rx="7" fill="url(#ksCube)"/>
+  <rect x="329" y="235" width="26" height="27" rx="7" fill="url(#ksCube)"/>
+  <path d="M268 243 h19 M268 252 h19 M301 245 h18 M301 254 h18 M333 243 h18 M333 252 h18"
+        stroke="#2c1105" stroke-width="2.8" opacity=".55" stroke-linecap="round"/>
+  <path d="M268 239 q9 -3 17 0 M301 241 q8 -3 16 0 M333 239 q8 -3 16 0" stroke="#f2b789" stroke-width="2" fill="none" opacity=".5"/>
+  <path d="M276 236 q8 -4 14 0" stroke="#f7e2c8" stroke-width="3" fill="none" opacity=".55" stroke-linecap="round"/>
+</g>
+
+<!-- közlenmiş biber + domates -->
+<g transform="rotate(-12 88 262)">
+  <path d="M56 266 q10 -22 30 -21 q22 1 30 16 q6 12 -6 16 q-16 5 -34 2 q-18 -3 -20 -13 z" fill="url(#ksPep)"/>
+  <path d="M64 258 q16 -9 38 -2" stroke="#c9e07a" stroke-width="2.4" fill="none" opacity=".55" stroke-linecap="round"/>
+  <path d="M70 269 q18 6 38 1" stroke="#20340f" stroke-width="3" fill="none" opacity=".6" stroke-linecap="round"/>
+</g>
+<g transform="translate(128 270)">
+  <circle r="20" fill="url(#ksTom)"/>
+  <path d="M-17 -5 q17 10 34 -2" stroke="#5c1108" stroke-width="3.2" fill="none" opacity=".5" stroke-linecap="round"/>
+  <ellipse cx="-6" cy="-10" rx="7" ry="4" fill="#ff9d72" opacity=".5" filter="url(#ksBlur)"/>
+</g>
+
+<!-- DÜRÜM -->
+<g transform="rotate(-6 200 180)">
+  <path d="M157 84 L157 276 q0 14 14 14 L229 290 q14 0 14 -14 L243 84 Z" fill="url(#ksLav)"/>
+  <path d="M162 110 q38 16 76 2" stroke="#b78f57" stroke-width="1.6" fill="none" opacity=".5"/>
+  <path d="M160 150 q40 18 82 0" stroke="#b78f57" stroke-width="1.6" fill="none" opacity=".42"/>
+  <path d="M186 92 L182 274" stroke="#c9a36c" stroke-width="2" fill="none" opacity=".45"/>
+  <path d="M222 92 L226 274" stroke="#8f6c3c" stroke-width="2.4" fill="none" opacity=".4"/>
+  <ellipse cx="176" cy="132" rx="9" ry="5" fill="#8d6534" opacity=".35" filter="url(#ksBlur)"/>
+  <ellipse cx="215" cy="176" rx="11" ry="6" fill="#8d6534" opacity=".3" filter="url(#ksBlur)"/>
+
+  <path d="M155 196 q22 10 44 4 q26 -8 46 3 L245 276 q0 14 -14 14 L171 290 q-14 0 -14 -14 Z" fill="url(#ksFoil)"/>
+  <path d="M168 206 L164 288 M188 210 L186 290 M210 206 L214 290 M230 202 L234 286"
+        stroke="#5c6165" stroke-width="1.3" opacity=".55" fill="none"/>
+  <path d="M176 204 L174 288 M200 212 L202 290 M222 204 L226 288"
+        stroke="#f2f6f8" stroke-width="1" opacity=".5" fill="none"/>
+  <path d="M155 196 q22 10 44 4 q26 -8 46 3" stroke="#eef2f5" stroke-width="2" fill="none" opacity=".7"/>
+
+  <ellipse cx="200" cy="84" rx="43" ry="13.5" fill="url(#ksLav)"/>
+  <ellipse cx="200" cy="85" rx="35" ry="10" fill="url(#ksFace)"/>
+  <g>
+    <rect x="171" y="78" width="18" height="15" rx="5" fill="url(#ksCube)"/>
+    <rect x="192" y="80" width="17" height="14" rx="5" fill="url(#ksCube)"/>
+    <rect x="212" y="77" width="16" height="15" rx="5" fill="url(#ksCube)"/>
+    <path d="M174 85 h12 M195 87 h11 M215 84 h11" stroke="#2c1105" stroke-width="2.2" opacity=".55" stroke-linecap="round"/>
+    <path d="M174 81 q6 -2 12 0 M195 83 q6 -2 11 0 M215 80 q5 -2 11 0" stroke="#f2b789" stroke-width="1.6" fill="none" opacity=".55"/>
+  </g>
+  <path d="M166 82 q10 -10 20 -8 q-6 9 -20 11 z" fill="#e9edd8" opacity=".9"/>
+  <path d="M214 77 q11 -9 21 -6 q-8 9 -21 9 z" fill="#f2f5e2" opacity=".85"/>
+  <path d="M190 73 q6 -9 14 -9 q-2 8 -10 12 z" fill="#4f8f2e"/>
+  <circle cx="182" cy="74" r="3" fill="#d94a2b"/>
+  <ellipse cx="200" cy="84" rx="43" ry="13.5" fill="none" stroke="#c6a26b" stroke-width="1.6" opacity=".8"/>
+</g>
+
+<g fill="none" stroke="#ffd9a8" stroke-linecap="round" opacity=".16">
+  <path d="M182 56 q-9 -16 3 -28 q10 -11 2 -24" stroke-width="3.4"/>
+  <path d="M212 50 q10 -14 0 -26 q-9 -11 1 -22" stroke-width="3"/>
+</g>
+</svg>

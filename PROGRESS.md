@@ -2,7 +2,7 @@
 
 > **Bu dosya projenin tek hafızası.** Sohbet kapansa, token bitse, aylar sonra dönülse
 > buradan devam edilir. **Her değişiklikte bu dosya güncellenir.**
-> Son güncelleme: **2026-07-23**
+> Son güncelleme: **2026-08-03**
 
 ---
 
@@ -53,6 +53,7 @@ cd "C:/Users/ismet/Desktop/newjob/lezzet-ocakbasi" && python -m http.server 8099
 ```
 lezzet-ocakbasi/
 ├── index.html      → tüm içerik + SEO meta + JSON-LD (Restaurant schema)
+├── menu.html       → QR MENÜ sayfası (tek dosya, kendi CSS/JS'i içinde)
 ├── styles.css      → tema, animasyonlar, responsive, FOTO SLOTLARI
 ├── script.js       → scroll reveal, mobil menü, sayaçlar, köz partikülleri, menü sekmeleri
 ├── assets/         → fotoğraflar buraya (şu an BOŞ)
@@ -69,6 +70,13 @@ lezzet-ocakbasi/
 ---
 
 ## 4. NASIL DÜZENLENİR (kritik bilgi — burayı oku)
+
+### 🚨 ASSETS KLASÖRÜNE ŞİFRE/ÖZEL BELGE FOTOĞRAFI KOYMA
+`assets/` klasöründeki her şey **GitHub'da herkese açık** ve `lezzetocakbasi.netlify.app/assets/dosyaadi.jpg`
+adresinden internete servis edilir. 2 Ağustos 2026'da amcanın **Gmail şifrelerinin yazılı olduğu defter fotoğrafı**
+yanlışlıkla buraya atılmıştı, push edilmeden fark edilip çıkarıldı.
+**Kural: assets/ klasörüne sadece siteye konacak yemek/mekân fotoğrafı girer.** Şifre, fatura, kimlik, defter → asla.
+Push etmeden önce her seferinde `assets/` içine bir bak.
 
 ### 📸 Fotoğraf eklemek → EN KOLAY İŞ
 `assets/` klasörüne şu **tam isimlerle** at, başka hiçbir şey yapmana gerek yok:
@@ -87,6 +95,34 @@ lezzet-ocakbasi/
 | 9 | `assets/lavas.jpg` | Galeri — "Lavaş & Garnitür" | Lavaş, salata, garnitür yakın |
 
 **Galeri 3×3 tam ızgara (9 kutu).** Hepsi dolarsa mükemmel görünür; eksik kalanlar gradyan olarak durur, kırık görünmez.
+
+**📌 2 Ağustos 2026 itibarıyla assets/ içinde ne var:**
+
+| Dosya | Durum |
+|---|---|
+| `dis-cephe.jpg` | ✅ Hero fotoğrafı + `og:image`. **Düzenlenmiş hali** (aşağıya bak), 2048×865. |
+| `kampanya-afis.jpg` | ✅ Kampanya afişi — kampanya bölümünde gösteriliyor. Web için 1600px'e küçültüldü. |
+| `_ham-dis-cephe-1.jpg` | Ham çekim #1 (dokunulmamış). Yedek. |
+| `_ham-dis-cephe-2.jpg` | Ham çekim #2 (dokunulmamış). **Yayındaki foto bundan üretildi.** |
+| `_menu-fiyat-referans.jpg` | Dükkandaki A4 fiyat listesinin fotoğrafı. **Siteye konmuyor**, fiyatları buradan okuduk. |
+| Galeri 9 slot | ❌ Boş — galeri bölümü bu yüzden geçici kapatıldı (bkz. 4f). |
+
+> Başında `_` olan dosyalar siteye konmayan çalışma dosyalarıdır.
+
+### 🖼️ Dış cephe fotoğrafına ne yapıldı (2 Ağu 2026)
+Kullanıcının isteği: **"insanları o fotodan sil, kötü görüntü olmasın."** Yapılanlar:
+1. **Ham çekim #2 temel alındı** — #1 ile aynı kadraj ama sahnedeki kişiler çok daha az yer kaplıyordu,
+   yani silinecek alan küçüktü → sonuç temiz çıktı. (#1 ile denendi, silinen yerler bulanık leke bıraktı.)
+2. **Alttan kırpıldı (1536 → 865 px).** Tabureye oturan adam, sağdaki adamın gövdesi ve afiş arkasındaki
+   ayaklar bu satırın altında kalıyordu. Alt taraf zaten bomboş karo zemindi — kırpmak kadrajı da sıkılaştırdı.
+3. Bantta kalan 3 kişi **inpaint** ile silindi (ayakta duran adam, camdaki tezgahtaki kişi, sağdaki adamın kafası).
+4. Gece çekimi olduğu için hafif ışık/kontrast düzeltmesi (CLAHE) yapıldı.
+
+⚠️ Silinen yerlerde çok yakından bakınca hafif yumuşama var — normal boyutta ve hero'daki koyu katman
+altında fark edilmiyor. Tekrar üretmek gerekirse: script `_ham-dis-cephe-2.jpg`'den çalışır, kırpma satırı `CUT=865`.
+
+⚠️ Foto **gece ve karanlık** çekilmiş. "Mavi saat" (gün batımından 20–30 dk sonra, ~20:35–21:00) çekimi
+çok daha iyi olur — **ve o saatte dükkânın önü boşken çekilirse bu silme işine hiç gerek kalmaz.**
 
 CSS `url(...) , linear-gradient(...)` şeklinde yazıldı: **dosya varsa foto görünür, yoksa eski gradyan görünür.** Kırık resim ikonu çıkmaz.
 Hero'da fotoğrafın üstünde koyu katman var → hangi foto konursa konsun yazılar okunur kalır.
@@ -163,11 +199,115 @@ Hero'da fotoğrafın üstünde koyu katman var → hangi foto konursa konsun yaz
 
 ---
 
-### 🍽️ Menü fiyatı girmek
-`index.html` içinde `MENU-PLACEHOLDER` yorumunu ara.
-Her ürün: `<article class="menu-item" data-cat="...">`
-Kategoriler: `doner` / `kebap` / `baslangic` / `icecek`
-Fiyat için `<span class="price">—</span>` içindeki tireyi sil, fiyatı yaz.
+## 4d. 🔥 KAMPANYA BÖLÜMÜ (sayfanın en üstü — hero'nun hemen altı)
+
+Kullanıcının isteği: **kampanya oldukça siteye en başa konacak.**
+`index.html` içinde `<section class="promo" id="kampanya">` bloğu. Değiştirilecek 4 şey:
+
+| Ne | Nerede |
+|---|---|
+| Başlık | `<h2 class="promo-title"><span class="promo-kg">1 KG</span> Tavuk Kanat</h2>` |
+| Yanındakiler | `<ul class="promo-extras">` içindeki `<li>` satırları |
+| Fiyat | `<div class="promo-price"><b>450</b><span>₺</span></div>` |
+| Afiş fotoğrafı | `assets/kampanya-afis.jpg` dosyasının üzerine yenisini yaz (aynı isimle) |
+
+- **Kampanya bitince:** bu `<section>`'ı komple sil **+** navbardaki `<a href="#kampanya" class="nav-hot">Kampanya</a>` satırını sil **+** hero'nun altındaki `scroll-hint` linkini `#hakkinda`'ya çevir.
+- Afiş fotoğrafı `loading="eager"` — sayfanın üstünde olduğu için bilerek böyle, lazy yapma.
+- Mobilde otomatik tek sütuna düşüyor (860px altı), test edildi.
+
+---
+
+## 4f. 🖼️ GALERİ BÖLÜMÜ — ŞU AN KAPALI
+
+Fotoğraflar çekilmediği için 9 kutunun hepsi boş gradyan görünüyordu; **2 Ağu 2026'da geçici olarak
+yorum satırına alındı** (silinmedi). Fotoğraflar `assets/`e atılınca **açmak için tek iş:**
+
+1. `index.html` → `GALERİ — GEÇİCİ OLARAK KAPALI` yorumunun altındaki `<section>` bloğunun `<!--` ve `-->` işaretlerini sil
+2. Navbarda `GALERİ LİNKİ` yorumundaki `<a href="#galeri">Galeri</a>` satırını da aç
+
+CSS (`.g-doner`, `.g-usta` … ) ve dosya isimleri olduğu gibi duruyor, onlara dokunulmadı.
+Hangi dosya nereye düşüyor → yukarıdaki tablo. Çekim rehberi → bölüm 4b.
+
+---
+
+### 🍽️ Menü fiyatı değiştirmek — ⚠️ ARTIK **İKİ** DOSYADA
+Fiyatlar 3 Ağustos 2026'dan beri hem ana sayfada hem QR menü sayfasında geçiyor.
+**Birini değiştirip diğerini unutma.**
+
+| Dosya | Nerede | Ne değişecek |
+|---|---|---|
+| `index.html` | `<section class="section menu" id="menu">` | `<span class="menu-price-tag">140 ₺</span>` (görselin sağ altındaki rozet) |
+| `menu.html` | `<section data-panel="durum">` / `"servis"` | `<div class="price">140 <span>₺</span></div>` |
+
+- Ürün blokları: `index.html`'de `<article class="menu-item" data-cat="...">`, `menu.html`'de `<article class="item">`.
+- Kategoriler (2 tane): **`durum`** / **`servis`**. Sekme `data-cat` değerleri ürünlerdekiyle birebir aynı olmalı.
+- `script.js` ana sayfada ilk sekmeyi otomatik seçer. `menu.html`'in kendi küçük scripti var (dosyanın içinde, en altta).
+- Tarih notunu iki dosyada da güncelle: `Fiyatlar 2 Ağustos 2026 tarihlidir.`
+
+### 📱 `menu.html` — QR MENÜ SAYFASI (3 Ağu 2026)
+Masadaki QR kod buraya bakacak. **Kasıtlı olarak tek dosya**: harici CSS/JS/font yok,
+zayıf internette bile anında açılsın diye. Sadece yemek SVG'leri dışarıdan geliyor (~5 KB/adet).
+- Yapısı: başlık → yapışkan sekmeler → kampanya kutusu → ürün listesi → altta sabit "Paket Sipariş / Ana Sayfa" çubuğu.
+- Ana sayfadan bağlantı: menü bölümünün altındaki **"📱 Telefonda Aç · Sade Menü"** butonu.
+- ⚠️ Görsellerde `loading="lazy"` **KULLANMA** — sekmeyle gizlenen paneldeki lazy görseller tarayıcıda hiç yüklenmiyor (3 Ağu 2026'da test edilip görüldü). Dosyalar zaten minicik.
+- Kampanya bitince: `<section class="promo">` bloğunu burada da sil (ana sayfadakiyle birlikte).
+
+### 🎨 YEMEK GÖRSELLERİ — elle çizilmiş SVG'ler (3 Ağu 2026)
+Kullanıcının kararı: **stok fotoğraf yok** (dükkanın kendi yemeği değil, müşteriyi yanıltır).
+Ürünler internetten araştırılıp her biri için **sıfırdan SVG çizim** yapıldı. Ateş/köz temasına uygun,
+koyu zemin + turuncu köz ışığı + tabak/lavaş/közlenmiş domates-biber/sumaklı soğan.
+
+| Dosya (`assets/`) | Ürün |
+|---|---|
+| `yemek-tavuk-durum.svg` | Tavuk Dürüm |
+| `yemek-tavuk-sis-durum.svg` | Tavuk Şiş Dürüm |
+| `yemek-kofte-durum.svg` | Köfte Dürüm |
+| `yemek-adana-durum.svg` | Adana Dürüm |
+| `yemek-kuzu-sis-durum.svg` | Kuzu Şiş Dürüm |
+| `yemek-pilav-ustu-doner.svg` | Pilav Üstü Tavuk Döner |
+| `yemek-tavuk-sis-servis.svg` | Tavuk Şiş Servis |
+| `yemek-kanat-servis.svg` | Kanat Servis |
+| `yemek-kofte-servis.svg` | Köfte Servis |
+| `yemek-adana-servis.svg` | Adana Servis |
+| `yemek-kuzu-sis-servis.svg` | Kuzu Şiş Servis |
+
+- Hepsi `viewBox="0 0 400 300"` (4:3), metin içermez → dile bağlı değil, her boyutta net.
+- Her dosyanın gradient id'leri kendine özgü ön ekli (`td…`, `ks…`, `as…`) → ileride sayfaya inline gömülürse çakışmaz.
+- **Gerçek fotoğraf geldiğinde:** `index.html`/`menu.html` içindeki `src="assets/yemek-*.svg"` satırını `.jpg`'ye çevirmek yeterli, başka hiçbir şeye dokunma.
+- İki sayfada da altta dürüst not var: *"Görseller ürünleri tanıtmak için hazırlanmış çizimlerdir; sunum değişebilir."* **Bu notu silme** — çizimle gerçek sunum farklı olabilir, müşteriye baştan söylüyoruz.
+- Ürün açıklamaları da araştırmaya göre yenilendi (Adana'nın zırhla çekilmesi, kanadın közde 20-25 dk pişmesi, köftenin dinlendirilmesi gibi). **Dükkanın yanında ne verdiğini bilmediğimiz için "yanında şu gelir" iddiası yazılmadı** — sadece ürünün kendisi anlatıldı. Amcadan öğrenilince eklenebilir.
+
+### 📋 GÜNCEL MENÜ (2 Ağustos 2026 — dükkandaki A4 listeden)
+
+**Dürüm**
+
+| Ürün | Fiyat |
+|---|---|
+| Tavuk Dürüm | 140 ₺ |
+| Tavuk Şiş Dürüm | 150 ₺ |
+| Köfte Dürüm | 240 ₺ |
+| Adana Dürüm | 240 ₺ |
+| Kuzu Şiş Dürüm | 280 ₺ |
+
+**Porsiyon / Servis**
+
+| Ürün | Fiyat |
+|---|---|
+| Pilav Üstü Tavuk Döner | 200 ₺ |
+| Tavuk Şiş Servis | 300 ₺ |
+| Kanat Servis | 300 ₺ |
+| Köfte Servis | 480 ₺ |
+| Adana Servis | 480 ₺ |
+| Kuzu Şiş Servis | 550 ₺ |
+
+**Kampanya:** 1 KG Tavuk Kanat + salata + lavaş + ezme = **450 ₺**
+
+❌ **Et Dürüm ve Hatay Usulü Dürüm ARTIK YAPILMIYOR** (kullanıcıdan teyitli, 2 Ağu 2026).
+Tabelada hâlâ yazıyorlar ama menüye **eklenmeyecek**. Fotoğraftaki tabelada göründükleri için ileride
+"bunlar eksik" diye eklenmesin — bilerek yok.
+
+⚠️ **Fiyatı hâlâ bilinmeyenler (amcaya sorulacak):** ayran / içecek, salata, ezme, çorba ayrı fiyatları.
+Listede olmadığı için siteye konmadı — uydurma fiyat yazılmadı.
 
 ### 🕐 Saat değiştirmek → 4 yerde geçiyor, HEPSİNİ değiştir
 1. `index.html` JSON-LD → `"openingHours": "Mo-Su 11:30-22:00"` (satır ~43)
@@ -238,14 +378,25 @@ Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işlet
 - [x] **Galeri foto slotları hazırlandı** — assets/'e dosya atınca otomatik devreye giriyor — 23 Tem 2026
 - [x] **NETLIFY'A GEÇİLDİ — asıl adres artık `lezzetocakbasi.netlify.app`** (ücretsiz, HTTPS otomatik, TR'den erişim doğrulandı) — 23 Tem 2026
 - [x] **Adres etiketleri güncellendi** — canonical + og:url + JSON-LD `url` yeni adrese çevrildi — 23 Tem 2026
+- [x] **GERÇEK MENÜ + FİYATLAR GİRİLDİ** — 11 ürün, 2 sekme (Dürüm / Porsiyon-Servis) — 2 Ağu 2026
+- [x] **KAMPANYA BÖLÜMÜ AÇILDI** — hero'nun hemen altında, afiş fotoğrafı + 450 ₺ + paket sipariş butonu — 2 Ağu 2026
+- [x] **Dış cephe fotoğrafı geldi** — hero arka planında canlı, `og:image` etiketi açıldı (WhatsApp'ta link atınca artık görsel çıkıyor) — 2 Ağu 2026
+- [x] **Amcanın Google hesabının şifresi değiştirildi** (dükkanda birlikte yapıldı) — 2 Ağu 2026
+- [x] **11 ürün için elle çizilmiş SVG yemek görseli yapıldı** — ana sayfadaki menü görselli karta dönüştü — 3 Ağu 2026
+- [x] **Ürün açıklamaları araştırmaya göre yenilendi** (Adana/zırh, kanat/köz süresi, köfte/dinlendirme vb.) — 3 Ağu 2026
+- [x] **`menu.html` QR menü sayfası yapıldı** — tek dosya, telefon öncelikli, altta sabit sipariş çubuğu — 3 Ağu 2026
 
 ## 6. SIRADA / BEKLEYEN ⏳
 
 > 🏪 **Dükkan ziyareti görev listesi ayrı dosyada: [`DUKKAN-GOREV.md`](DUKKAN-GOREV.md)** — telefondan açılıp sırayla işaretlenecek.
 
-### 🚨 EN ACİL: Google hesabı kurtarma
-Amcanın Google hesabı dükkandaki PC'de **açık ama şifresi bilinmiyor.** Oturum düşerse işletme profili (yorumlar, sıralama, fotoğraflar) kaybedilir. Dükkandaki ilk iş: kurtarma telefonu/e-postası ekle + şifreyi sıfırla. Detay: DUKKAN-GOREV.md bölüm A.
-⚠️ O PC'de **çıkış yapma, çerez temizleme yok.**
+### 🚨 EN ACİL: Google hesabı — YARIM KALDI (2 Ağu 2026)
+Şifre dükkanda **değiştirildi ✅**, ama işlem tamamlanmadı:
+**Amcanın telefonuna Google'dan bir bildirim gitti; "4" rakamına dokunup onaylaması gerekiyor.**
+Amca bunu tek başına yapamıyor → **onun yanına gidip birlikte yapılacak, ilk iş bu.**
+Onaylanmazsa doğrulama yarım kalır ve hesap yine riskte olur.
+⚠️ Dükkandaki PC'de **çıkış yapma, çerez temizleme yok.**
+⚠️ Yeni şifre `assets/` klasörüne, repoya, hiçbir proje dosyasına YAZILMAZ (bkz. bölüm 4 baştaki uyarı).
 
 ### 🎯 ANA HEDEF: QR MENÜ
 Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
@@ -255,10 +406,10 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 - [ ] **Gerçek fotoğraflar** — kullanıcı çekecek → `assets/` (çekim rehberi: bölüm 4b)
       **Galeri 9 slota çıkarıldı** (kullanıcı usta + mangal + dış masa da çekecek).
       Öncelik: `dis-cephe.jpg` (akşam) → `usta.jpg` → `doner.jpg` → `mangal.jpg` → `dis-masa.jpg` → `sofra.jpg` → `ocak.jpg` → `kebap.jpg` → `salon.jpg` → `lavas.jpg`
-- [ ] **`og:image` etiketini aç** — `dis-cephe.jpg` eklenince `index.html` head'indeki yorumlu 2 satırın işaretini kaldır (WhatsApp'ta link önizlemesinde büyük görsel çıkar)
-- [ ] **Menü + fiyatlar** — amcadan gelince doldurulacak
-- [ ] **Menü ayrı tek sayfa yapılacak** (`menu.html`) — telefonda okunaklı, kategorili, hızlı açılan
-- [ ] **QR kod üretilecek** → menü sayfasına → yazdırılıp masalara konacak
+- [ ] **Eksik fiyatlar amcaya sorulacak** — Et Dürüm, Hatay Usulü Dürüm (ikisi de tabelada yazıyor ama A4 listede yok), ayran/içecek, salata, ezme, çorba
+- [x] ~~**Menü ayrı tek sayfa yapılacak** (`menu.html`)~~ ✅ **YAPILDI 3 Ağu 2026**
+- [ ] **🎯 SIRADAKİ İŞ: QR kod üretilecek** → `https://lezzetocakbasi.netlify.app/menu.html` adresine → yazdırılıp masalara konacak.
+      (Site push edilip adres canlı doğrulandıktan SONRA üretilsin ki QR boş sayfaya bakmasın.)
 - [ ] **Fotoğraf düzenleme** — kırpma, boyut, ışık/renk, üzerine yazı ekleme (Claude yapacak, kullanıcı ham çekecek)
 - [ ] **WhatsApp sipariş butonu** — numara varsa
 - [ ] **Hakkında bölümü gerçek bilgilerle** — kuruluş yılı, ustanın hikâyesi, et tedariki
@@ -288,4 +439,11 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 | 2026-07-23 | Adres kararı: **ücretsiz yol**, `.com` ertelendi. TR erişim testi yapıldı (pages.dev engelli, netlify/vercel/github.io açık) → **Netlify seçildi** (yeni hesap gerektirmediği için) |
 | 2026-07-23 | Yeni yol haritası: menü çıkarma → tek sayfa menü → **QR kod** → masalara. Fotoğraf düzenleme (yazı ekleme dahil) Claude'a devredildi. Google hesabı şifresizlik riski tespit edildi → `DUKKAN-GOREV.md` yazıldı |
 | 2026-07-23 | Galeri 6 → **9 slot** (3×3) yapıldı: usta, mangal, dış masa kareleri eklendi. Yatay/dikey kuralı ve yeni çekim notları 4b'ye yazıldı |
+| 2026-08-02 | 🚨 Amcanın **şifre defteri fotoğrafı** yanlışlıkla `assets/`e atılmış, push edilmeden çıkarıldı → bölüm 4'e kalıcı uyarı yazıldı |
+| 2026-08-02 | ✅ **Gerçek menü + fiyatlar girildi** (dükkandaki A4 listeden okundu). Sekmeler `doner/kebap/baslangic/icecek` → `durum/servis` oldu; `script.js` artık ilk sekmeyi otomatik seçiyor |
+| 2026-08-02 | ✅ **Kampanya bölümü açıldı** (hero'nun altı, id=`kampanya`): afiş fotoğrafı + "1 KG Tavuk Kanat" + salata/lavaş/ezme + 450 ₺ + paket sipariş butonu. Navbara "🔥 Kampanya" linki eklendi. Nasıl düzenlenir → bölüm 4d |
+| 2026-08-02 | ✅ **Dış cephe fotoğrafı hero'ya kondu**, `og:image` açıldı. Yerel test: menü sekmeleri, kampanya kartı, mobil 375px — taşma yok, hata yok |
+| 2026-08-02 | ✅ **Galeri bölümü geçici kapatıldı** (fotoğraf yok, boş gradyan duruyordu) — yorum satırına alındı, açma talimatı bölüm 4f |
+| 2026-08-02 | ✅ **Dış cephe fotoğrafından insanlar silindi** (kullanıcı isteği): ham çekim #2 temel alındı, alttan kırpıldı, kalan 3 kişi inpaint'lendi, ışık düzeltildi. Hamlar `_ham-*` olarak saklandı. Detay bölüm 4 |
+| 2026-08-03 | ✅ **11 ürün tek tek araştırıldı ve her biri için elle SVG çizim yapıldı** (`assets/yemek-*.svg`). Kullanıcı kararı: stok fotoğraf yok, gerçek fotoğraf beklenmiyor, çizim. Ana sayfadaki menü görselli 3'lü karta çevrildi (fiyat görselin üstünde rozet), açıklamalar araştırmaya göre yeniden yazıldı. **`menu.html` QR menü sayfası yapıldı.** Tarayıcıda test: 11/11 görsel yükleniyor, sekmeler çalışıyor, 375px'te taşma yok, konsol temiz. ⚠️ Fiyatlar artık İKİ dosyada — bkz. bölüm 4e |
 | 2026-07-23 | ✅ **Netlify kurulumu tamamlandı — https://lezzetocakbasi.netlify.app CANLI.** HTTPS, saatler, tüm bölümler, telefon linki tarayıcıyla doğrulandı. Adres etiketleri yeni adrese çevrildi. Sıradaki: fotoğraflar |
