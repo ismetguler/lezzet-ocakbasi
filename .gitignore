@@ -3,3 +3,8 @@
 # assets/ klasörü internete AÇIK servis edilir — bkz. PROGRESS.md bölüm 4.
 assets/_*
 _*
+
+# foto üretim ara dosyaları (indirilen adaylar / çıktı) — repoya girmez
+tools/cand/
+tools/cand2/
+tools/final/

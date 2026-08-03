@@ -337,8 +337,48 @@ kayma olur). Kaymışsa bastırma, düzelttir.
 ⚠️ QR yeniden üretilecekse: `python -m pip install segno`, sonra `segno.make(url, error='h')`.
 Hata düzeltme **H (%30)** seçildi — kod yağ/leke/çizik alsa bile okunmaya devam eder, masa menüsünde şart.
 
-### 🎨 YEMEK GÖRSELLERİ — elle çizilmiş SVG'ler (3 Ağu 2026)
-Kullanıcının kararı: **stok fotoğraf yok** (dükkanın kendi yemeği değil, müşteriyi yanıltır).
+### 🎨 YEMEK GÖRSELLERİ — ✅ ARTIK STOK FOTOĞRAF (3 Ağu 2026)
+
+**Canlıdaki durum bu.** 11 ürünün görseli `assets/yemek-*.jpg` — Pexels'ten alınmış telifsiz
+fotoğraflar, hepsi tek tip hale getirildi. Seçim listesi ve gerekçeler:
+**[`FOTO-ARASTIRMA.md`](FOTO-ARASTIRMA.md)** (hangi ürüne hangi Pexels ID'si konduğu orada).
+
+| Konu | Değer |
+|---|---|
+| Kaynak / lisans | **Pexels** — ticari kullanım serbest, atıf zorunlu değil |
+| Ölçü | **1200×900 (4:3)**, ~90–160 KB, progressive JPEG |
+| Ortak arka plan | Kenarlar **`#1c140f`** közüne gömüldü (elips vinyet + kenarda hafif odak kaybı) |
+| Ortak ton | Merkez parlaklığı eşitlendi (hedef 132), hafif sıcaklık + kontrast + doygunluk |
+| Üretim scriptleri | `tools/foto-indir.py` (Pexels'ten indirir) → `tools/foto-uretim.py` (tek tipe getirir) |
+
+**Tekrar üretmek gerekirse** (ör. bir kare beğenilmedi):
+```bash
+cd tools && python foto-indir.py && python foto-uretim.py && cp final/*.jpg ../assets/
+```
+`tools/foto-uretim.py` içindeki **`PICKS`** listesi tek doğruluk kaynağı: her satır
+`(dosya adı, Pexels ID, dikey odak 0–1, yakınlaştırma)`. Bir kareyi değiştirmek =
+o satırdaki ID'yi değiştirip scripti tekrar çalıştırmak, sonra `final/*.jpg` → `assets/`.
+Yedek ID'ler `FOTO-ARASTIRMA.md` tablosunda duruyor.
+
+⚠️ **Neden vinyet:** 11 farklı stok fotoğrafın masası/duvarı/mermeri birbirini tutmuyordu.
+Kullanıcının isteği *"arka planlar hepsinde aynı olsun"* idi → kenarlar tek renge gömülüp
+ortada sadece yemek bırakıldı. Yeni bir görsel eklenirse **aynı scriptten geçirilmeli**,
+yoksa set bozulur.
+
+- `.menu-shot` (index) zaten `aspect-ratio:4/3` → kırpma yok, birebir oturuyor.
+  `.item .shot` (menu.html) 122px dar kutu, `object-fit:cover` ile yanlardan kırpıyor — sorun değil,
+  yemek ortada. İki kutunun arka plan rengi de `#1a1512`, vinyetle kaynaşıyor.
+- **Eski SVG çizimler silinmedi**, `assets/yemek-*.svg` olarak duruyor. Geri dönmek istenirse
+  iki dosyada `.jpg"` → `.svg"` yeterli.
+- **Gerçek yemek fotoğrafı çekilirse:** aynı isimle (`yemek-tavuk-durum.jpg` vb.) üzerine yaz,
+  **HTML'e hiç dokunma.** Çekim rehberi bölüm 4b.
+- ⚠️ Bu fotoğraflar **dükkânın kendi yemeği değil.** Menünün altındaki
+  *"Görseller temsilidir; sunum değişebilir."* notu bu yüzden var — **silme.**
+
+<details>
+<summary>Eski durum (3 Ağu 2026 sabahı, artık geçerli değil) — elle çizilmiş SVG'ler</summary>
+
+Kullanıcının (o günkü) kararı: **stok fotoğraf yok** (dükkanın kendi yemeği değil, müşteriyi yanıltır).
 Ürünler internetten araştırılıp her biri için **sıfırdan SVG çizim** yapıldı. Ateş/köz temasına uygun,
 koyu zemin + turuncu köz ışığı + tabak/lavaş/közlenmiş domates-biber/sumaklı soğan.
 
@@ -360,7 +400,10 @@ koyu zemin + turuncu köz ışığı + tabak/lavaş/közlenmiş domates-biber/su
 - Her dosyanın gradient id'leri kendine özgü ön ekli (`td…`, `ks…`, `as…`) → ileride sayfaya inline gömülürse çakışmaz.
 - **Gerçek fotoğraf geldiğinde:** `index.html`/`menu.html` içindeki `src="assets/yemek-*.svg"` satırını `.jpg`'ye çevirmek yeterli, başka hiçbir şeye dokunma.
 - İki sayfada da altta dürüst not var: *"Görseller ürünleri tanıtmak için hazırlanmış çizimlerdir; sunum değişebilir."* **Bu notu silme** — çizimle gerçek sunum farklı olabilir, müşteriye baştan söylüyoruz.
-- Ürün açıklamaları da araştırmaya göre yenilendi (Adana'nın zırhla çekilmesi, kanadın közde 20-25 dk pişmesi, köftenin dinlendirilmesi gibi). **Dükkanın yanında ne verdiğini bilmediğimiz için "yanında şu gelir" iddiası yazılmadı** — sadece ürünün kendisi anlatıldı. Amcadan öğrenilince eklenebilir.
+
+</details>
+
+- Ürün açıklamaları araştırmaya göre yenilendi (Adana'nın zırhla çekilmesi, kanadın közde 20-25 dk pişmesi, köftenin dinlendirilmesi gibi) — **bunlar hâlâ geçerli, fotoğraf değişikliğinden etkilenmedi.** Dükkanın yanında ne verdiğini bilmediğimiz için "yanında şu gelir" iddiası yazılmadı; amcadan öğrenilince eklenebilir.
 
 ### 📋 GÜNCEL MENÜ (2 Ağustos 2026 — dükkandaki A4 listeden)
 
@@ -470,6 +513,7 @@ Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işlet
 - [x] **11 ürün için elle çizilmiş SVG yemek görseli yapıldı** — ana sayfadaki menü görselli karta dönüştü — 3 Ağu 2026
 - [x] **Ürün açıklamaları araştırmaya göre yenilendi** (Adana/zırh, kanat/köz süresi, köfte/dinlendirme vb.) — 3 Ağu 2026
 - [x] **`menu.html` QR menü sayfası yapıldı** — tek dosya, telefon öncelikli, altta sabit sipariş çubuğu — 3 Ağu 2026
+- [x] **SVG çizimler → telifsiz stok FOTOĞRAF** (Pexels, 11 ürün), hepsi aynı koyu köz arka planına oturtuldu — 3 Ağu 2026
 
 ## 6. SIRADA / BEKLEYEN ⏳
 
@@ -541,4 +585,5 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 | 2026-08-03 | 🚨 **`assets/` klasörünün hiç repoda olmadığı fark edildi** (`?? assets/`). Yani `dis-cephe.jpg` ve `kampanya-afis.jpg` 2 Ağu'da "canlıya alındı" yazılmasına rağmen **push edilmemiş, canlıda hiç görünmemiş.** Bu commit'le eklendi, canlıda doğrulandı. Ayrıca `.gitignore` yazıldı: `assets/_*` (ham çekimler + A4 fiyat listesi fotoğrafı) artık repoya giremiyor |
 | 2026-08-03 | ✅ **YAYINLANDI** (`8802390`). Canlı doğrulama: `/menu` 200, 11/11 görsel yükleniyor, ana sayfada hero fotoğrafı ve kampanya afişi ilk kez gerçekten görünüyor, 375px'te taşma yok |
 | 2026-08-03 | ✅ **11 ürün tek tek araştırıldı ve her biri için elle SVG çizim yapıldı** (`assets/yemek-*.svg`). Kullanıcı kararı: stok fotoğraf yok, gerçek fotoğraf beklenmiyor, çizim. Ana sayfadaki menü görselli 3'lü karta çevrildi (fiyat görselin üstünde rozet), açıklamalar araştırmaya göre yeniden yazıldı. **`menu.html` QR menü sayfası yapıldı.** Tarayıcıda test: 11/11 görsel yükleniyor, sekmeler çalışıyor, 375px'te taşma yok, konsol temiz. ⚠️ Fiyatlar artık İKİ dosyada — bkz. bölüm 4e |
+| 2026-08-03 | 🖼️ **KARAR DEĞİŞTİ: SVG çizimler → stok fotoğraf.** Kullanıcı çizimleri *"çocuksu, kötü duruyor"* buldu. Pexels'ten (telifsiz, ticari serbest) 41 aday indirildi, kontakt sayfası yapılıp **gözle elendi**, 11 kare seçildi. Kullanıcı isteği *"arka planlar hepsinde aynı olsun"* → 1200×900 4:3 kırpma + merkez parlaklığı eşitleme + kenarların `#1c140f` közüne gömülmesi (`_foto-uretim.py`). İki HTML'de `.svg`→`.jpg` (11+11), alt not *"çizimlerdir"* → *"temsilidir"* oldu. SVG'ler silinmedi. Test: 12/12 görsel yükleniyor, konsol temiz, 375px'te taşma yok, `.menu-shot` 4:3 birebir oturuyor |
 | 2026-07-23 | ✅ **Netlify kurulumu tamamlandı — https://lezzetocakbasi.netlify.app CANLI.** HTTPS, saatler, tüm bölümler, telefon linki tarayıcıyla doğrulandı. Adres etiketleri yeni adrese çevrildi. Sıradaki: fotoğraflar |
