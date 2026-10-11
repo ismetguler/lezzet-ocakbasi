@@ -474,7 +474,7 @@ Kullanıcı kararı: para verilmeyecek, uğraş olmayacak, adreste sadece işlet
 | 3 | Build ayarları **BOŞ BIRAK** (build command yok, publish directory boş/kök). Site saf HTML, derleme yok. → Deploy | Kullanıcı |
 | 4 | Site settings → **Change site name** → `lezzetocakbasi` yaz | Kullanıcı |
 | 5 | Adresi kontrol et: `https://lezzetocakbasi.netlify.app` | Kullanıcı |
-| 6 | `index.html` içindeki OG / canonical / JSON-LD adreslerini yeni adrese çevir | **Claude** |
+| 6 | `index.html` içindeki OG / canonical / JSON-LD adreslerini yeni adrese çevir | **Geliştirici** |
 | 7 | Google işletme profiline site adresi olarak bunu yaz | Kullanıcı |
 
 ⚠️ Adım 4'te isim doluysa `lezzetocakbasitalas` dene.
@@ -545,7 +545,7 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 - [ ] ⏸️ **RAFA KALDIRILDI: tezgah üstü / duvar panosu** (A3–A2) — kullanıcı kararı 3 Ağu 2026:
       *"içecekler orada yazmıyor, onları da öğrenince yaparız."* İçecek fiyatları gelince tekrar gündeme gelecek.
       Gerekçe duruyor: dönerci trafiğinin çoğu tezgahta, masaya oturmayan müşteri A5'i hiç görmüyor.
-- [ ] **Fotoğraf düzenleme** — kırpma, boyut, ışık/renk, üzerine yazı ekleme (Claude yapacak, kullanıcı ham çekecek)
+- [ ] **Fotoğraf düzenleme** — kırpma, boyut, ışık/renk, üzerine yazı ekleme (geliştirici yapacak, kullanıcı ham çekecek)
 - [ ] **WhatsApp sipariş butonu** — numara varsa
 - [ ] **Hakkında bölümü gerçek bilgilerle** — kuruluş yılı, ustanın hikâyesi, et tedariki
 - [ ] **Google profili düzeltmeleri** — site adresi, kategori, hizmetler, ödeme yöntemleri (DUKKAN-GOREV.md A4)
@@ -572,7 +572,7 @@ Menü tek sayfa (telefonda güzel açılan) → QR kod üret → masalara koy.
 | 2026-07-23 | Bu dosya proje hafızasına dönüştürüldü; saatler 11:30–22:00 olarak düzeltildi (ikisi de teyitli); galeri foto slotları fallback'li hale getirildi → **push edildi, canlıda** (`b500e35`) |
 | 2026-07-23 | Hero'ya `dis-cephe.jpg` foto slotu açıldı (koyu okunurluk katmanıyla); foto çekim rehberi (4b) ve alan adı planı (4c) yazıldı |
 | 2026-07-23 | Adres kararı: **ücretsiz yol**, `.com` ertelendi. TR erişim testi yapıldı (pages.dev engelli, netlify/vercel/github.io açık) → **Netlify seçildi** (yeni hesap gerektirmediği için) |
-| 2026-07-23 | Yeni yol haritası: menü çıkarma → tek sayfa menü → **QR kod** → masalara. Fotoğraf düzenleme (yazı ekleme dahil) Claude'a devredildi. Google hesabı şifresizlik riski tespit edildi → `DUKKAN-GOREV.md` yazıldı |
+| 2026-07-23 | Yeni yol haritası: menü çıkarma → tek sayfa menü → **QR kod** → masalara. Fotoğraf düzenleme (yazı ekleme dahil) geliştiriciye devredildi. Google hesabı şifresizlik riski tespit edildi → `DUKKAN-GOREV.md` yazıldı |
 | 2026-07-23 | Galeri 6 → **9 slot** (3×3) yapıldı: usta, mangal, dış masa kareleri eklendi. Yatay/dikey kuralı ve yeni çekim notları 4b'ye yazıldı |
 | 2026-08-02 | 🚨 Amcanın **şifre defteri fotoğrafı** yanlışlıkla `assets/`e atılmış, push edilmeden çıkarıldı → bölüm 4'e kalıcı uyarı yazıldı |
 | 2026-08-02 | ✅ **Gerçek menü + fiyatlar girildi** (dükkandaki A4 listeden okundu). Sekmeler `doner/kebap/baslangic/icecek` → `durum/servis` oldu; `script.js` artık ilk sekmeyi otomatik seçiyor |
