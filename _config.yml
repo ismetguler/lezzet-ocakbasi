@@ -1,0 +1,7 @@
+# GitHub Pages: proje notları ve yardımcı betikler siteye dahil edilmez
+exclude:
+  - PROGRESS.md
+  - DUKKAN-GOREV.md
+  - FOTO-ARASTIRMA.md
+  - tools
+  - netlify.toml
